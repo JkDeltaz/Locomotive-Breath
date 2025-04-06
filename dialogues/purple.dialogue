@@ -1,0 +1,7 @@
+~ start
+
+do play_character_animation("talk")
+Tenho E. Tenho A. E tenho Jorge. Você tem orégano?
+do play_character_animation("default")
+
+=> END

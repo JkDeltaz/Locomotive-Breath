@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://cbblu0q21ik7h"
+path="res://.godot/imported/purple.dialogue-e5506ebc41479e629faf3d9d08d51914.tres"
+
+[deps]
+
+source_file="res://dialogues/purple.dialogue"
+dest_files=["res://.godot/imported/purple.dialogue-e5506ebc41479e629faf3d9d08d51914.tres"]
+
+[params]
+
+defaults=true

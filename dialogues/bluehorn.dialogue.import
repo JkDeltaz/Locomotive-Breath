@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://bsaskpdl1hs0r"
+path="res://.godot/imported/bluehorn.dialogue-cb4e4157154269f7226a7a4f6a7d2753.tres"
+
+[deps]
+
+source_file="res://dialogues/bluehorn.dialogue"
+dest_files=["res://.godot/imported/bluehorn.dialogue-cb4e4157154269f7226a7a4f6a7d2753.tres"]
+
+[params]
+
+defaults=true
