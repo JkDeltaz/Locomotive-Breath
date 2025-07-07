@@ -1,216 +1,56 @@
-[gd_scene load_steps=14 format=3 uid="uid://dihad4tcdqt2v"]
+[gd_scene load_steps=9 format=3 uid="uid://dihad4tcdqt2v"]
 
 [ext_resource type="Script" uid="uid://c5fyvmghqogpu" path="res://main_scripts/main_camera.gd" id="1_8e5s8"]
 [ext_resource type="Script" uid="uid://2byojt8407br" path="res://main_scripts/main.gd" id="1_xxyhp"]
-[ext_resource type="Texture2D" uid="uid://cm41tq1imrhka" path="res://assets/gui/interface.png" id="2_5wi6k"]
-[ext_resource type="Texture2D" uid="uid://b6y0ewr88td0s" path="res://assets/characters/purple/podri_idle.png" id="2_8e5s8"]
-[ext_resource type="Texture2D" uid="uid://cskhpsf67nsyv" path="res://assets/characters/purple/podri_falando.png" id="3_yp5qj"]
-[ext_resource type="Texture2D" uid="uid://b7t3qa46bnt5w" path="res://assets/items/slimehand_item.png" id="6_46m03"]
-[ext_resource type="Texture2D" uid="uid://skhskfm4n8k7" path="res://assets/items/screws_item.png" id="7_rn820"]
-[ext_resource type="Script" uid="uid://c7qw6yv1l2cvj" path="res://main_scenes/player_offer.gd" id="8_rn820"]
+[ext_resource type="Texture2D" uid="uid://beoipi6la2joo" path="res://assets/backgrounds/bg2.png" id="2_yp5qj"]
+[ext_resource type="PackedScene" uid="uid://dcqnto4nkpr7r" path="res://characters/flavina.tscn" id="3_yp5qj"]
+[ext_resource type="Texture2D" uid="uid://u3m6gethl5e2" path="res://assets/backgrounds/mesa.png" id="4_yp5qj"]
+[ext_resource type="PackedScene" uid="uid://cv228qmf77whx" path="res://main_scenes/trading.tscn" id="5_yp5qj"]
+[ext_resource type="PackedScene" uid="uid://lpxqo14gcqhi" path="res://main_scenes/gui.tscn" id="7_46m03"]
 
-[sub_resource type="Animation" id="Animation_8e5s8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("character:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("character:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_yp5qj")]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rn820"]
+size = Vector2(956, 101)
 
-[sub_resource type="Animation" id="Animation_5wi6k"]
-resource_name = "default"
-length = 1.1
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("character:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_8e5s8")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("character:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("character:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("character:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-}
-
-[sub_resource type="Animation" id="Animation_46m03"]
-resource_name = "talk"
-length = 1.1
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("character:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_yp5qj")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("character:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("character:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("character:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_i0cl8"]
-_data = {
-&"RESET": SubResource("Animation_8e5s8"),
-&"default": SubResource("Animation_5wi6k"),
-&"talk": SubResource("Animation_46m03")
-}
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_01u8o"]
-radius = 17.5373
-
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" node_paths=PackedStringArray("current_character")]
 script = ExtResource("1_xxyhp")
+current_character = NodePath("flavina")
 
-[node name="GUI" type="Sprite2D" parent="."]
-position = Vector2(480, 392.625)
-scale = Vector2(3.42857, 3.00671)
-texture = ExtResource("2_5wi6k")
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(481.6, 339.6)
+scale = Vector2(0.324, 0.323)
+texture = ExtResource("2_yp5qj")
 
-[node name="background" type="ColorRect" parent="."]
-offset_left = 7.0
-offset_top = 99.0
-offset_right = 250.0
-offset_bottom = 298.0
-color = Color(0.652922, 0.52025, 0.979497, 1)
+[node name="flavina" parent="." instance=ExtResource("3_yp5qj")]
+position = Vector2(481, 270)
+scale = Vector2(0.7, 0.7)
 
-[node name="character" type="Sprite2D" parent="."]
-position = Vector2(129, 202)
-scale = Vector2(3.42857, 3.00671)
-texture = ExtResource("3_yp5qj")
-hframes = 3
-vframes = 4
-frame = 1
-
-[node name="test_anim" type="AnimationPlayer" parent="character"]
-root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_i0cl8")
-}
-autoplay = "default"
+[node name="Mesa" type="Sprite2D" parent="."]
+position = Vector2(479.5, 545.5)
+scale = Vector2(0.324899, 0.324879)
+texture = ExtResource("4_yp5qj")
 
 [node name="main_camera" type="Camera2D" parent="."]
 position = Vector2(480, 270)
 limit_left = 0
 limit_top = 0
 limit_right = 960
-limit_bottom = 780
+limit_bottom = 680
 position_smoothing_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("1_8e5s8")
 
-[node name="offer" type="Sprite2D" parent="."]
-position = Vector2(331, 199)
-scale = Vector2(3, 3)
-texture = ExtResource("6_46m03")
+[node name="anchor" type="CanvasLayer" parent="main_camera"]
 
-[node name="player_offer" type="Sprite2D" parent="."]
-position = Vector2(62, 632)
-scale = Vector2(3, 3)
-texture = ExtResource("7_rn820")
-script = ExtResource("8_rn820")
+[node name="go_up" type="Area2D" parent="main_camera/anchor"]
+position = Vector2(479, 50)
 
-[node name="pick_up" type="Area2D" parent="player_offer"]
+[node name="collision" type="CollisionShape2D" parent="main_camera/anchor/go_up"]
+shape = SubResource("RectangleShape2D_rn820")
 
-[node name="pick_up_collision" type="CollisionShape2D" parent="player_offer/pick_up"]
-position = Vector2(0.333333, 1.66667)
-shape = SubResource("CircleShape2D_01u8o")
+[node name="trading" parent="." instance=ExtResource("5_yp5qj")]
 
-[connection signal="mouse_entered" from="player_offer/pick_up" to="player_offer" method="_on_pick_up_mouse_entered"]
-[connection signal="mouse_exited" from="player_offer/pick_up" to="player_offer" method="_on_pick_up_mouse_exited"]
+[node name="GUI" parent="." instance=ExtResource("7_46m03")]
+
+[connection signal="mouse_entered" from="main_camera/anchor/go_up" to="main_camera" method="_on_go_up_mouse_entered"]
+[connection signal="mouse_exited" from="main_camera/anchor/go_up" to="main_camera" method="_on_go_up_mouse_exited"]

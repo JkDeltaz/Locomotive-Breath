@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://lpxqo14gcqhi"]
+
+[ext_resource type="Script" uid="uid://cgp8lchkf1371" path="res://main_scripts/gui.gd" id="1_qly7m"]
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_qly7m")
+
+[node name="clock" type="RichTextLabel" parent="."]
+offset_left = 823.0
+offset_top = 26.0
+offset_right = 865.0
+offset_bottom = 54.0
+scale = Vector2(2.5, 2.5)
+text = "09:00"
+
+[node name="clock_timer" type="Timer" parent="clock"]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="clock/clock_timer" to="." method="_on_clock_timer_timeout"]

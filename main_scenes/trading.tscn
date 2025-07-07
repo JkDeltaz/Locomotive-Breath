@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://cv228qmf77whx"]
+
+[ext_resource type="Script" uid="uid://c1ijjx3t0eb3y" path="res://main_scripts/trading.gd" id="1_5qhro"]
+[ext_resource type="Texture2D" uid="uid://b7t3qa46bnt5w" path="res://assets/items/slimehand_item.png" id="1_visiv"]
+[ext_resource type="Script" uid="uid://bdm7yqoy3spyt" path="res://main_scripts/offer.gd" id="2_5qhro"]
+[ext_resource type="Texture2D" uid="uid://skhskfm4n8k7" path="res://assets/items/screws_item.png" id="3_glstp"]
+[ext_resource type="Script" uid="uid://c7qw6yv1l2cvj" path="res://main_scripts/player_offer.gd" id="4_k6440"]
+[ext_resource type="Script" uid="uid://c6le8l6oivo1i" path="res://main_scripts/player_offer_area.gd" id="5_68yo0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01u8o"]
+size = Vector2(10.3333, 9.4)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7fymn"]
+radius = 93.1343
+
+[node name="trading" type="Node2D"]
+script = ExtResource("1_5qhro")
+
+[node name="sale_items" type="Node2D" parent="."]
+position = Vector2(25, -145)
+
+[node name="offer_01" type="Marker2D" parent="sale_items"]
+position = Vector2(79, 679)
+script = ExtResource("2_5qhro")
+
+[node name="offer_sprite" type="Sprite2D" parent="sale_items/offer_01"]
+position = Vector2(2.02656e-06, 1.19209e-07)
+scale = Vector2(3, 3)
+texture = ExtResource("3_glstp")
+script = ExtResource("4_k6440")
+
+[node name="pick_up" type="Area2D" parent="sale_items/offer_01/offer_sprite"]
+position = Vector2(1.90735e-06, 1.60001)
+scale = Vector2(3, 3)
+collision_mask = 2
+
+[node name="pick_up_collision" type="CollisionShape2D" parent="sale_items/offer_01/offer_sprite/pick_up"]
+position = Vector2(-0.099998, -0.500004)
+shape = SubResource("RectangleShape2D_01u8o")
+
+[node name="offer_02" type="Marker2D" parent="sale_items"]
+position = Vector2(190, 678)
+script = ExtResource("2_5qhro")
+current_offer = "slimehand"
+
+[node name="offer_sprite" type="Sprite2D" parent="sale_items/offer_02"]
+position = Vector2(2.02656e-06, 1.19209e-07)
+scale = Vector2(3, 3)
+texture = ExtResource("1_visiv")
+script = ExtResource("4_k6440")
+
+[node name="pick_up" type="Area2D" parent="sale_items/offer_02/offer_sprite"]
+position = Vector2(1.90735e-06, 1.60001)
+scale = Vector2(3, 3)
+collision_mask = 2
+
+[node name="pick_up_collision" type="CollisionShape2D" parent="sale_items/offer_02/offer_sprite/pick_up"]
+position = Vector2(-0.099998, -0.500004)
+shape = SubResource("RectangleShape2D_01u8o")
+
+[node name="offer_03" type="Marker2D" parent="sale_items"]
+position = Vector2(298, 678)
+script = ExtResource("2_5qhro")
+
+[node name="offer_sprite" type="Sprite2D" parent="sale_items/offer_03"]
+position = Vector2(2.02656e-06, 1.19209e-07)
+scale = Vector2(3, 3)
+texture = ExtResource("3_glstp")
+script = ExtResource("4_k6440")
+
+[node name="pick_up" type="Area2D" parent="sale_items/offer_03/offer_sprite"]
+position = Vector2(1.90735e-06, 1.60001)
+scale = Vector2(3, 3)
+collision_mask = 2
+
+[node name="pick_up_collision" type="CollisionShape2D" parent="sale_items/offer_03/offer_sprite/pick_up"]
+position = Vector2(-0.0999985, -0.500004)
+shape = SubResource("RectangleShape2D_01u8o")
+
+[node name="player_offer_area" type="Area2D" parent="."]
+position = Vector2(-35, 320)
+collision_layer = 2
+input_pickable = false
+script = ExtResource("5_68yo0")
+
+[node name="collision" type="CollisionShape2D" parent="player_offer_area"]
+position = Vector2(821, 206)
+shape = SubResource("CircleShape2D_7fymn")
+
+[node name="player_offer_pos" type="Marker2D" parent="player_offer_area"]
+position = Vector2(833, 206)
+
+[connection signal="mouse_entered" from="sale_items/offer_01/offer_sprite/pick_up" to="sale_items/offer_01/offer_sprite" method="_on_pick_up_mouse_entered"]
+[connection signal="mouse_exited" from="sale_items/offer_01/offer_sprite/pick_up" to="sale_items/offer_01/offer_sprite" method="_on_pick_up_mouse_exited"]
+[connection signal="mouse_entered" from="sale_items/offer_02/offer_sprite/pick_up" to="sale_items/offer_02/offer_sprite" method="_on_pick_up_mouse_entered"]
+[connection signal="mouse_exited" from="sale_items/offer_02/offer_sprite/pick_up" to="sale_items/offer_02/offer_sprite" method="_on_pick_up_mouse_exited"]
+[connection signal="mouse_entered" from="sale_items/offer_03/offer_sprite/pick_up" to="sale_items/offer_03/offer_sprite" method="_on_pick_up_mouse_entered"]
+[connection signal="mouse_exited" from="sale_items/offer_03/offer_sprite/pick_up" to="sale_items/offer_03/offer_sprite" method="_on_pick_up_mouse_exited"]

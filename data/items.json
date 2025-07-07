@@ -1,0 +1,13 @@
+{
+	"screws": {
+		"path": "res://assets/items/screws_item.png",
+		"price": 50,
+		"scale": [1, 1]
+	},
+	
+	"slimehand": {
+		"path": "res://assets/items/slimehand_item.png",
+		"price": 30,
+		"scale": [1, 1]
+	}
+}

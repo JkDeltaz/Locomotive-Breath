@@ -1,7 +1,23 @@
 ~ start
 
 do play_character_animation("talk")
-Tenho E. Tenho A. E tenho Jorge. Você tem orégano?
+
+do play_character_animation("default")
+
+=> END!
+
+~ screws
+
+do play_character_animation("talk")
+Parafuso :D
+do play_character_animation("default")
+
+=> END
+
+~ slimehand
+
+do play_character_animation("talk")
+Mão verde :>
 do play_character_animation("default")
 
 => END
