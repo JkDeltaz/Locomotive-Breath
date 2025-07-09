@@ -1,0 +1,5 @@
+~ start
+
+do play_character_animation("talk")
+Aoba! Oh, tenho esse item chamado Vaca Enlatada, eu troco por um Cantil de Motivação, pode ser moço?
+do play_character_animation("default")

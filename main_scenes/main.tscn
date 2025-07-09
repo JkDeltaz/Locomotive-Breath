@@ -1,30 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://dihad4tcdqt2v"]
+[gd_scene load_steps=7 format=3 uid="uid://dihad4tcdqt2v"]
 
 [ext_resource type="Script" uid="uid://c5fyvmghqogpu" path="res://main_scripts/main_camera.gd" id="1_8e5s8"]
 [ext_resource type="Script" uid="uid://2byojt8407br" path="res://main_scripts/main.gd" id="1_xxyhp"]
 [ext_resource type="Texture2D" uid="uid://beoipi6la2joo" path="res://assets/backgrounds/bg2.png" id="2_yp5qj"]
-[ext_resource type="PackedScene" uid="uid://dcqnto4nkpr7r" path="res://characters/flavina.tscn" id="3_yp5qj"]
 [ext_resource type="Texture2D" uid="uid://u3m6gethl5e2" path="res://assets/backgrounds/mesa.png" id="4_yp5qj"]
-[ext_resource type="PackedScene" uid="uid://cv228qmf77whx" path="res://main_scenes/trading.tscn" id="5_yp5qj"]
 [ext_resource type="PackedScene" uid="uid://lpxqo14gcqhi" path="res://main_scenes/gui.tscn" id="7_46m03"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rn820"]
 size = Vector2(956, 101)
 
-[node name="main" type="Node2D" node_paths=PackedStringArray("current_character")]
+[node name="main" type="Node2D"]
 script = ExtResource("1_xxyhp")
-current_character = NodePath("flavina")
+
+[node name="character_pos" type="Marker2D" parent="."]
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(481.6, 339.6)
 scale = Vector2(0.324, 0.323)
 texture = ExtResource("2_yp5qj")
 
-[node name="flavina" parent="." instance=ExtResource("3_yp5qj")]
-position = Vector2(481, 270)
-scale = Vector2(0.7, 0.7)
-
-[node name="Mesa" type="Sprite2D" parent="."]
+[node name="table" type="Sprite2D" parent="."]
 position = Vector2(479.5, 545.5)
 scale = Vector2(0.324899, 0.324879)
 texture = ExtResource("4_yp5qj")
@@ -47,8 +42,6 @@ position = Vector2(479, 50)
 
 [node name="collision" type="CollisionShape2D" parent="main_camera/anchor/go_up"]
 shape = SubResource("RectangleShape2D_rn820")
-
-[node name="trading" parent="." instance=ExtResource("5_yp5qj")]
 
 [node name="GUI" parent="." instance=ExtResource("7_46m03")]
 

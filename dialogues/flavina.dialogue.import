@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://ck0n3qqstmwsx"
+path="res://.godot/imported/flavina.dialogue-a238a8f4ada301b9dbd0ecf4a58ac9cd.tres"
+
+[deps]
+
+source_file="res://dialogues/flavina.dialogue"
+dest_files=["res://.godot/imported/flavina.dialogue-a238a8f4ada301b9dbd0ecf4a58ac9cd.tres"]
+
+[params]
+
+defaults=true

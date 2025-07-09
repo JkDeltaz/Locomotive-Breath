@@ -1,21 +1,29 @@
 extends Node2D
 
 
-@export var current_character: Sprite2D
+var current_character: Sprite2D
 var currently_trading = false
 
+var character_in_screen = false
+var character = characterBase
+
 func _ready():
-	var file = "res://data/items.json"
-	var json_as_text = FileAccess.get_file_as_string(file)
-	var json_as_dict = JSON.parse_string(json_as_text)
-	
 	Global.connect("hour_passed", Callable(self, "spawn_character"))
-	
-	if json_as_dict:
-		print(json_as_dict)
+	spawn_character()
 
 func _process(_delta):
 	pass
 
 func play_character_animation(animation):
 	current_character.get_node("anim").play(animation)
+
+func spawn_character():
+	if character_in_screen:
+		return
+	current_character = Global.get_random_character()
+	character_in_screen = true
+	
+	add_child(current_character)
+	current_character.global_position = current_character.get_prefered_position()
+	move_child(current_character, 2)
+	Global.emit_signal("start_trading", current_character)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sjiekq71tgyw"
-path="res://.godot/imported/test_balloon.png-d2cd06a1dfc6d2ae749e5fa11a8d9ee7.ctex"
+uid="uid://b35vbuf1q1to8"
+path="res://.godot/imported/LB_OBJ_Can_Of_Motivation.png-309f36aea3511abf2cb67c5c74d36ed6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/test_balloon.png"
-dest_files=["res://.godot/imported/test_balloon.png-d2cd06a1dfc6d2ae749e5fa11a8d9ee7.ctex"]
+source_file="res://assets/items/LB_OBJ_Can_Of_Motivation.png"
+dest_files=["res://.godot/imported/LB_OBJ_Can_Of_Motivation.png-309f36aea3511abf2cb67c5c74d36ed6.ctex"]
 
 [params]
 

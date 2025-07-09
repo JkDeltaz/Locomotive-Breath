@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dr14iwan4xrci"]
+[gd_scene load_steps=10 format=3 uid="uid://dr14iwan4xrci"]
 
 [ext_resource type="Script" uid="uid://cqfv1c4xx085c" path="res://dialogue_balloon/balloon.gd" id="1_36de5"]
+[ext_resource type="Texture2D" uid="uid://bsdifmrfjogji" path="res://assets/gui/GUIDemo.png" id="2_3vlmg"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 
@@ -63,7 +64,6 @@ Panel/styles/panel = SubResource("StyleBoxFlat_uy0d5")
 
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
-follow_viewport_enabled = true
 script = ExtResource("1_36de5")
 
 [node name="Balloon" type="Control" parent="."]
@@ -84,23 +84,28 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -12.0
-offset_top = -252.0
-offset_right = -52.0
-offset_bottom = -17.0
+offset_left = -22.0
+offset_top = -241.0
+offset_right = -62.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
+
+[node name="GuiDemo" type="Sprite2D" parent="Balloon/Panel"]
+position = Vector2(690, 154)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("2_3vlmg")
 
 [node name="Dialogue" type="MarginContainer" parent="Balloon/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 436.0
-offset_top = -156.0
-offset_right = -108.0
-offset_bottom = -156.0
+offset_left = 411.0
+offset_top = 100.0
+offset_right = -35.0
+offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -113,7 +118,6 @@ mouse_filter = 2
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -124,7 +128,6 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Diálogo"
 
 [node name="Responses" type="MarginContainer" parent="Balloon"]
@@ -140,6 +143,7 @@ offset_right = 482.0
 offset_bottom = -221.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 
 [node name="ResponsesMenu" type="VBoxContainer" parent="Balloon/Responses" node_paths=PackedStringArray("response_template")]
 unique_name_in_owner = true
