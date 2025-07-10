@@ -1,20 +1,20 @@
 {
 	"can_of_motivation": {
-		"name": "can_of_motivation",
+		"name": "Cantil de Motivação",
 		"description": "Uma garrafa cheia de motivação líquida. Vale 30 Bufos.",
 		"path": "res://assets/items/LB_OBJ_Can_Of_Motivation.png",
 		"price": 30,
 		"scale": [1, 1]
 	},
 	"canned_cow": {
-		"name": "canned_cow",
+		"name": "Vaca Enlatada",
 		"description": "É uma vaca, e é enlatada. Não acho que tenha um gosto bom. Vale 30 bufos",
 		"path": "res://assets/items/LB_OBJ_Canned_Cow.png",
 		"price": 30,
 		"scale": [0.6, 0.6]
 	},
 	"catwo": {
-		"name": "catwo",
+		"name": "Catwo",
 		"description": "Não faço a menor ideia do que isso seja. Fontes confiáveis me dizem que vale 50 bufos.",
 		"path": "res://assets/items/LB_OBJ_Catwo.png",
 		"price": 30,

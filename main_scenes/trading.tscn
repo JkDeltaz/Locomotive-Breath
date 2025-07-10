@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://cohci0ktlyal4"]
+[gd_scene load_steps=17 format=3 uid="uid://cohci0ktlyal4"]
 
 [ext_resource type="Script" uid="uid://c1ijjx3t0eb3y" path="res://main_scripts/trading.gd" id="1_5qhro"]
 [ext_resource type="Script" uid="uid://7dqinuwn1533" path="res://main_scripts/inventory.gd" id="2_glstp"]
 [ext_resource type="Texture2D" uid="uid://b8ums0vqrr5uw" path="res://assets/gui/inventory.png" id="3_k6440"]
 [ext_resource type="PackedScene" uid="uid://c6n5a6vy3y1o7" path="res://main_scenes/inv_slot.tscn" id="4_68yo0"]
 [ext_resource type="Texture2D" uid="uid://b4hryacs08e6q" path="res://assets/gui/Offer.png" id="5_6h0rx"]
+[ext_resource type="Texture2D" uid="uid://wyiewbmf3od3" path="res://assets/gui/Description.png" id="6_glstp"]
 [ext_resource type="Texture2D" uid="uid://d2ew7i5kdtu2" path="res://assets/gui/Item.png" id="6_pjj5l"]
+[ext_resource type="Texture2D" uid="uid://c4kcrvl0f7ued" path="res://assets/gui/NameItem.png" id="8_k6440"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_72v26"]
 device = -1
@@ -185,6 +187,36 @@ position = Vector2(-2, -2)
 [node name="collision" type="CollisionShape2D" parent="offer/offer_mouse_area"]
 position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_glstp")
+
+[node name="description" type="Sprite2D" parent="."]
+position = Vector2(213, 292)
+texture = ExtResource("6_glstp")
+
+[node name="description_text" type="RichTextLabel" parent="description"]
+offset_left = -91.0
+offset_top = -33.0
+offset_right = 8273.0
+offset_bottom = 2831.0
+scale = Vector2(0.022, 0.022)
+theme_override_font_sizes/normal_font_size = 500
+text = "Descrição"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="item_name_background" type="Sprite2D" parent="description"]
+position = Vector2(-15, -51)
+texture = ExtResource("8_k6440")
+
+[node name="name_text" type="RichTextLabel" parent="description"]
+offset_left = -78.0
+offset_top = -64.0
+offset_right = 5002.0
+offset_bottom = 1096.0
+scale = Vector2(0.025, 0.025)
+theme_override_font_sizes/normal_font_size = 500
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="inventory/openBtn" to="inventory" method="_on_open_btn_pressed"]
 [connection signal="mouse_entered" from="item/item_mouse_area" to="." method="_on_item_mouse_area_mouse_entered"]

@@ -9,15 +9,18 @@ var file = "res://data/items.json"
 @onready var item_sprite = $item/item_sprite
 @onready var offer_sprite = $offer/offer_sprite
 
+var item_info
+
 func _ready():
 	Global.connect("start_trading", Callable(self, "start"))
+	$description.visible = false
 
 func start(character):
 	starting_item = character.main_offers.keys()[0]
 	update_item(starting_item)
 
 func update_item(item_name):
-	var item_info = get_item(item_name)
+	item_info = get_item(item_name)
 	var texture_path = item_info.get("path")
 	
 	item_sprite.texture = load(texture_path)
@@ -33,6 +36,9 @@ func _on_item_mouse_area_mouse_entered() -> void:
 
 func _on_item_mouse_area_mouse_exited() -> void:
 	mouse_in_item = false
+	$description.visible = false
 
 func show_item_description():
-	pass
+	$description.visible = true
+	$description/description_text.text = item_info.get("description")
+	$description/name_text.text = item_info.get("name")

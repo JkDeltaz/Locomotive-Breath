@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6n5a6vy3y1o7"]
+[gd_scene load_steps=6 format=3 uid="uid://c6n5a6vy3y1o7"]
 
 [ext_resource type="Script" uid="uid://cdt63w7b4pkvl" path="res://main_scripts/inv_slot.gd" id="1_jo6d2"]
 [ext_resource type="FontFile" uid="uid://crgn3gnr05ynk" path="res://assets/fonts/DS-DIGI.TTF" id="2_lnm7h"]
+[ext_resource type="Texture2D" uid="uid://wyiewbmf3od3" path="res://assets/gui/Description.png" id="3_wrjnm"]
+[ext_resource type="Texture2D" uid="uid://c4kcrvl0f7ued" path="res://assets/gui/NameItem.png" id="4_mji31"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrjnm"]
+size = Vector2(81.5385, 81.5385)
 
 [node name="invSlot" type="Panel"]
+mouse_filter = 2
 script = ExtResource("1_jo6d2")
 
 [node name="sprite" type="Sprite2D" parent="."]
@@ -17,7 +23,52 @@ offset_top = 33.0
 offset_right = 755.0
 offset_bottom = 534.0
 scale = Vector2(0.05, 0.05)
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_lnm7h")
 theme_override_font_sizes/normal_font_size = 500
 text = "1"
 fit_content = true
+
+[node name="description" type="Sprite2D" parent="."]
+position = Vector2(103, 83)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("3_wrjnm")
+
+[node name="description_text" type="RichTextLabel" parent="description"]
+offset_left = -91.0
+offset_top = -33.0
+offset_right = 8273.0
+offset_bottom = 2831.0
+scale = Vector2(0.022, 0.022)
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 500
+text = "Descrição"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mouse_area" type="Area2D" parent="description"]
+
+[node name="collision" type="CollisionShape2D" parent="description/mouse_area"]
+position = Vector2(-117.692, -86.9231)
+shape = SubResource("RectangleShape2D_wrjnm")
+debug_color = Color(0.957168, 3.85046e-07, 0.549201, 0.42)
+
+[node name="item_name_background" type="Sprite2D" parent="description"]
+position = Vector2(-7.69232, -49.2308)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("4_mji31")
+
+[node name="name_text" type="RichTextLabel" parent="description"]
+offset_left = -49.0
+offset_top = -60.0
+offset_right = 4093.0
+offset_bottom = 1094.0
+scale = Vector2(0.02, 0.02)
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 500
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="description/mouse_area" to="." method="_on_mouse_area_mouse_entered"]
+[connection signal="mouse_exited" from="description/mouse_area" to="." method="_on_mouse_area_mouse_exited"]
