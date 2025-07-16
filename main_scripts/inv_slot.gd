@@ -98,3 +98,4 @@ func _on_select_btn_toggled(toggled_on: bool) -> void:
 
 func _on_trade_btn_pressed() -> void:
 	trading.set_player_offer(item_info)
+	AudioManager.play_audio("new_offer", 1)

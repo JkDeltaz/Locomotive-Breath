@@ -2,6 +2,9 @@
 	"flavina": {
 		"name": "Flavina Tourina",
 		"path": "res://characters/flavina.tscn",
+		"voice_path": "res://assets/audio/character_voices/Flav_Voice.mp3",
+		"pitch_range": [0.9, 1.1],
+		"talk_speed": 0.04, 
 		"loyalty": 0,
 	}
 }

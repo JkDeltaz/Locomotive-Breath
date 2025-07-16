@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5pcjtvvd6fa1"]
+
+[ext_resource type="Script" uid="uid://bbmopmofsor6p" path="res://main_scripts/audio_manager.gd" id="1_js1ub"]
+[ext_resource type="AudioStream" uid="uid://c6m07eqvm2c4e" path="res://assets/audio/trading_sounds/offerAccept.mp3" id="2_js1ub"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_js1ub")
+
+[node name="new_offer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_js1ub")

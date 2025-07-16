@@ -22,6 +22,7 @@ func start(character):
 
 func set_player_offer(item):
 	player_offer = Items.item_dict.find_key(item)
+	Characters.current_trade_item_dialogue(player_offer)
 	update_offer(player_offer)
 
 func update_offer(item_name):

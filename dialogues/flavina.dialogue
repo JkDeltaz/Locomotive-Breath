@@ -3,7 +3,6 @@
 do play_character_animation("talk")
 Aoba! Oh, tenho esse item chamado Vaca Enlatada, eu troco por um Cantil de Motivação, pode ser moço?
 do play_character_animation("default")
-
 => END!
 
 ~ offered_prefered_item
@@ -20,4 +19,12 @@ do play_character_animation("talk")
 Mas... Esse já é o que eu tenho...
 do play_character_animation("default")
 
-~ 
+=> END
+
+~ offered_disliked_item
+
+do play_character_animation("talk")
+Uhm... Eu deveria saber o que é isso?
+do play_character_animation("default")
+
+=> END

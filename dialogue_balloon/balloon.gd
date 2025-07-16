@@ -24,6 +24,8 @@ var locals: Dictionary = {}
 
 var _locale: String = TranslationServer.get_locale()
 
+@onready var talk_sound: AudioStreamPlayer = $talk_sound
+
 ## The current line
 var dialogue_line: DialogueLine:
 	set(value):
@@ -174,3 +176,25 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 
 
 #endregion
+
+var character_info: Dictionary
+var talk_speed: float = 0.04
+var pitch_range: Array
+var voice_path: String
+
+func set_character():
+	if Characters.current_character:
+		character_info = Characters.current_character.get_info()
+		talk_speed = character_info.get("talk_speed")
+		pitch_range = character_info.get("pitch_range")
+		voice_path = character_info.get("voice_path")
+		$%DialogueLabel.seconds_per_step = talk_speed
+		talk_sound.stream = load(voice_path)
+
+func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
+	if not character_info:
+		set_character()
+	
+	if letter not in [" ", ",", "."]:
+		talk_sound.pitch_scale = randf_range(pitch_range[0], pitch_range[1])
+		talk_sound.play()

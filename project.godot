@@ -21,6 +21,7 @@ Global="*res://main_scripts/global.gd"
 Items="*res://main_scripts/items.gd"
 Characters="*res://main_scripts/characters.gd"
 Utils="*res://main_scripts/utils.gd"
+AudioManager="*res://main_scenes/audio_manager.tscn"
 
 [dialogue_manager]
 

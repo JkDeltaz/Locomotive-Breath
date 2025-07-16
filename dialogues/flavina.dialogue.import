@@ -1,6 +1,7 @@
 [remap]
 
-importer="dialogue_manager_compiler_14"
+importer="dialogue_manager"
+importer_version=15
 type="Resource"
 uid="uid://ck0n3qqstmwsx"
 path="res://.godot/imported/flavina.dialogue-a238a8f4ada301b9dbd0ecf4a58ac9cd.tres"

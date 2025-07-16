@@ -21,6 +21,7 @@ func spawn_character():
 	if character_in_screen:
 		return
 	current_character = Characters.get_random_character()
+	Characters.set_current_character(current_character)
 	character_in_screen = true
 	
 	add_child(current_character)
