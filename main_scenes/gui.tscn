@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://lpxqo14gcqhi"]
+[gd_scene load_steps=13 format=3 uid="uid://lpxqo14gcqhi"]
 
 [ext_resource type="Script" uid="uid://cgp8lchkf1371" path="res://main_scripts/gui.gd" id="1_qly7m"]
 [ext_resource type="FontFile" uid="uid://crgn3gnr05ynk" path="res://assets/fonts/DS-DIGI.TTF" id="2_2wer5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://nf2mew7nxg23" path="res://assets/gui/timerWindow.png" id="3_72v26"]
 [ext_resource type="PackedScene" uid="uid://cohci0ktlyal4" path="res://main_scenes/trading.tscn" id="4_2wer5"]
 [ext_resource type="Script" uid="uid://b88kki2kxo5k5" path="res://main_scripts/clock.gd" id="4_ig3j1"]
+[ext_resource type="PackedScene" uid="uid://c0j3m1atggp10" path="res://misc/static_gif.tscn" id="4_w1upg"]
 
 [sub_resource type="Animation" id="Animation_72v26"]
 length = 0.001
@@ -34,38 +35,9 @@ tracks/1/keys = {
 "values": [Color(0, 0, 0, 0.772549)]
 }
 
-[sub_resource type="Animation" id="Animation_w1upg"]
-resource_name = "dawn"
-length = 108.0
-step = 108.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("clock_background:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 37.8979, 108),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0.00710246, 3.07736e-06, 0.0635728, 1), Color(0.00710246, 3.07736e-06, 0.0635728, 1), Color(0.83756, 0.873603, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../clock:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 38.3837, 66.3213, 108),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.772549), Color(1, 1, 1, 0.772549), Color(0, 0, 0, 0.772549), Color(0, 0, 0, 0.772549)]
-}
-
 [sub_resource type="Animation" id="Animation_656bg"]
 resource_name = "afternoon"
-length = 108.0
+length = 144.0
 step = 108.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -74,7 +46,7 @@ tracks/0/path = NodePath("clock_background:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 108),
+"times": PackedFloat32Array(0, 144),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.83756, 0.873603, 1, 1), Color(0.328812, 0.0334374, 1, 1)]
@@ -86,15 +58,15 @@ tracks/1/path = NodePath("../clock:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 47.6153, 108),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 67.5359, 71.4229, 144),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0.862745), Color(1, 1, 1, 0.772549), Color(1, 1, 1, 0.772549)]
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_bh3d7"]
-resource_name = "night"
-length = 108.0
+[sub_resource type="Animation" id="Animation_w1upg"]
+resource_name = "dawn"
+length = 144.0
 step = 108.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -103,7 +75,36 @@ tracks/0/path = NodePath("clock_background:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 108),
+"times": PackedFloat32Array(0, 37.8979, 87.7209, 144),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.00710246, 3.07736e-06, 0.0635728, 1), Color(0.00710246, 3.07736e-06, 0.0635728, 1), Color(0.679922, 0.708775, 0.916537, 1), Color(0.83756, 0.873603, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../clock:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 39.8413, 81.6262, 86.4849, 144),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bh3d7"]
+resource_name = "night"
+length = 144.0
+step = 108.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("clock_background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 144),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.328812, 0.0334374, 1, 1), Color(0.00710246, 3.07736e-06, 0.0635728, 1)]
@@ -115,10 +116,10 @@ tracks/1/path = NodePath("../clock:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 22.9727, 108),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 144),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0.772549), Color(0.851769, 0.851769, 0.851769, 0.772549), Color(1, 1, 1, 0.772549)]
+"values": [Color(0.85098, 0.85098, 0.85098, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_656bg"]
@@ -142,7 +143,6 @@ texture = ExtResource("2_ig3j1")
 modulate = Color(0.83756, 0.873603, 1, 1)
 show_behind_parent = true
 position = Vector2(118.571, -4.28571)
-scale = Vector2(1, 1)
 texture = ExtResource("3_72v26")
 
 [node name="anim" type="AnimationPlayer" parent="clock_border"]
@@ -150,7 +150,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_656bg")
 }
 autoplay = "dawn"
-speed_scale = 20.0
 
 [node name="clock" type="RichTextLabel" parent="."]
 modulate = Color(0, 0, 0, 0.772549)
@@ -167,9 +166,16 @@ vertical_alignment = 1
 script = ExtResource("4_ig3j1")
 
 [node name="clock_timer" type="Timer" parent="clock"]
+wait_time = 0.3
 autostart = true
 
 [node name="trading" parent="." instance=ExtResource("4_2wer5")]
+
+[node name="static_gif" parent="." instance=ExtResource("4_w1upg")]
+show_behind_parent = true
+z_index = 1
+position = Vector2(155.5, 70)
+scale = Vector2(0.195833, 0.1625)
 
 [connection signal="animation_finished" from="clock_border/anim" to="clock" method="_on_anim_animation_finished"]
 [connection signal="timeout" from="clock/clock_timer" to="clock" method="_on_clock_timer_timeout"]

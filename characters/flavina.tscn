@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcqnto4nkpr7r"]
+[gd_scene load_steps=9 format=3 uid="uid://dcqnto4nkpr7r"]
 
 [ext_resource type="Texture2D" uid="uid://bsc4weorjkqkc" path="res://assets/characters/cowgirl/flavina_idle.png" id="1_71f8e"]
 [ext_resource type="Script" uid="uid://dfc6k0pk1nqfy" path="res://character_scripts/flavina.gd" id="2_7pdbd"]
@@ -53,6 +53,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("flavina:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-121, 250)]
 }
 
 [sub_resource type="Animation" id="Animation_5wi6k"]
@@ -163,18 +175,37 @@ tracks/3/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 23]
 }
 
+[sub_resource type="Animation" id="Animation_7pdbd"]
+resource_name = "walk_in"
+length = 2.0
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("flavina:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-121, 271), Vector2(-60.3, 240), Vector2(0.400009, 271), Vector2(61.1, 240), Vector2(121.8, 271), Vector2(182.5, 240), Vector2(243.2, 271), Vector2(303.9, 240), Vector2(364.6, 271), Vector2(425.3, 240), Vector2(486, 271)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i0cl8"]
 _data = {
 &"RESET": SubResource("Animation_jwte0"),
 &"default": SubResource("Animation_5wi6k"),
-&"talk": SubResource("Animation_52crw")
+&"talk": SubResource("Animation_52crw"),
+&"walk_in": SubResource("Animation_7pdbd")
 }
 
 [node name="flavina" type="Sprite2D"]
-position = Vector2(486, 271)
+position = Vector2(-121, 271)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_71f8e")
 hframes = 24
+frame = 14
 script = ExtResource("2_7pdbd")
 
 [node name="anim" type="AnimationPlayer" parent="."]
@@ -182,7 +213,7 @@ root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_i0cl8")
 }
-autoplay = "default"
+autoplay = "walk_in"
 
 [node name="Bg2" type="Sprite2D" parent="."]
 visible = false
@@ -192,3 +223,5 @@ z_as_relative = false
 position = Vector2(480.08, 338)
 scale = Vector2(0.322744, 0.32)
 texture = ExtResource("3_7pdbd")
+
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

@@ -7,10 +7,6 @@ var am_or_pm = "am"
 
 @onready var clock_anim = get_parent().get_node("clock_border/anim")
 
-func _process(_delta):
-	if Input.is_action_just_pressed("left_mouse"):
-		print(clock_anim.current_animation)
-
 func _on_clock_timer_timeout() -> void:
 	minutes += 1
 	if minutes >= 60:

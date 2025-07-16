@@ -15,12 +15,12 @@ func _process(_delta):
 	pass
 
 func play_character_animation(animation):
-	current_character.get_node("anim").play(animation)
+	current_character.play_animation(animation)
 
 func spawn_character():
 	if character_in_screen:
 		return
-	current_character = Global.get_random_character()
+	current_character = Characters.get_random_character()
 	character_in_screen = true
 	
 	add_child(current_character)

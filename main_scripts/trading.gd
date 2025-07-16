@@ -1,44 +1,68 @@
 extends Node2D
 
 var starting_item: String
-
-var file = "res://data/items.json"
-@onready var json_as_text = FileAccess.get_file_as_string(file)
-@onready var item_dict = JSON.parse_string(json_as_text)
+var player_offer: String
 
 @onready var item_sprite = $item/item_sprite
 @onready var offer_sprite = $offer/offer_sprite
 
 var item_info
+var offer_info
 
 func _ready():
 	Global.connect("start_trading", Callable(self, "start"))
 	$description.visible = false
 
 func start(character):
-	starting_item = character.main_offers.keys()[0]
+	starting_item = character.main_offers.keys()[0] # Depois deixar aleatório com peso baseado na preferência
 	update_item(starting_item)
 
+
+# PLAYER OFFER
+
+func set_player_offer(item):
+	player_offer = Items.item_dict.find_key(item)
+	update_offer(player_offer)
+
+func update_offer(item_name):
+	offer_info = Items.get_item(item_name)
+	var texture_path = offer_info.get("path")
+	
+	offer_sprite.texture = load(texture_path)
+	offer_sprite.scale = Vector2(offer_info.scale[0], offer_info.scale[1])
+
+
+# CLIENT ITEM
+var mouse_in_item: bool = false
+func _on_item_mouse_area_mouse_entered() -> void:
+	show_item_description()
+
+func _on_item_mouse_area_mouse_exited() -> void:
+	$description.visible = false
+
+func _on_offer_mouse_area_mouse_entered() -> void:
+	show_offer_description()
+
+func _on_offer_mouse_area_mouse_exited() -> void:
+	$description.visible = false
+
+func show_item_description():
+	if item_info:
+		$description.visible = true
+		Utils.growing_text($description/description_text, item_info.get("description"), 0.0001)
+		$description/name_text.text = item_info.get("name")
+
+func show_offer_description():
+	if offer_info:
+		$description.visible = true
+		Utils.growing_text($description/description_text, offer_info.get("description"), 0.0001)
+		$description/name_text.text = offer_info.get("name")
+
 func update_item(item_name):
-	item_info = get_item(item_name)
+	item_info = Items.get_item(item_name)
 	var texture_path = item_info.get("path")
 	
 	item_sprite.texture = load(texture_path)
 	item_sprite.scale = Vector2(item_info.scale[0], item_info.scale[1])
 
-func get_item(item_name):
-	return item_dict.get(item_name)
-
-var mouse_in_item: bool = false
-func _on_item_mouse_area_mouse_entered() -> void:
-	mouse_in_item = true
-	show_item_description()
-
-func _on_item_mouse_area_mouse_exited() -> void:
-	mouse_in_item = false
-	$description.visible = false
-
-func show_item_description():
-	$description.visible = true
-	$description/description_text.text = item_info.get("description")
-	$description/name_text.text = item_info.get("name")
+# MISC
