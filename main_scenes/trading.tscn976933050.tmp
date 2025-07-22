@@ -1,0 +1,217 @@
+[gd_scene load_steps=15 format=3 uid="uid://cohci0ktlyal4"]
+
+[ext_resource type="Script" uid="uid://c1ijjx3t0eb3y" path="res://main_scripts/trading.gd" id="1_5qhro"]
+[ext_resource type="Script" uid="uid://7dqinuwn1533" path="res://main_scripts/inventory.gd" id="2_glstp"]
+[ext_resource type="Texture2D" uid="uid://b8ums0vqrr5uw" path="res://assets/gui/inventory.png" id="3_k6440"]
+[ext_resource type="PackedScene" uid="uid://c6n5a6vy3y1o7" path="res://main_scenes/inv_slot.tscn" id="4_68yo0"]
+[ext_resource type="Texture2D" uid="uid://b4hryacs08e6q" path="res://assets/gui/Offer.png" id="5_6h0rx"]
+[ext_resource type="Texture2D" uid="uid://wyiewbmf3od3" path="res://assets/gui/Description.png" id="6_glstp"]
+[ext_resource type="Texture2D" uid="uid://d2ew7i5kdtu2" path="res://assets/gui/Item.png" id="6_pjj5l"]
+[ext_resource type="Texture2D" uid="uid://c4kcrvl0f7ued" path="res://assets/gui/NameItem.png" id="8_k6440"]
+
+[sub_resource type="Animation" id="Animation_x11hb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1137, 270)]
+}
+
+[sub_resource type="Animation" id="Animation_6x5wt"]
+resource_name = "slide_in"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1137, 270), Vector2(772, 270)]
+}
+
+[sub_resource type="Animation" id="Animation_qmnhx"]
+resource_name = "slide_out"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(772, 270), Vector2(1137, 270)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2mf8c"]
+_data = {
+&"RESET": SubResource("Animation_x11hb"),
+&"slide_in": SubResource("Animation_6x5wt"),
+&"slide_out": SubResource("Animation_qmnhx")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qhro"]
+size = Vector2(147, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glstp"]
+size = Vector2(147, 150)
+
+[node name="trading" type="Node2D"]
+script = ExtResource("1_5qhro")
+
+[node name="inventory" type="Node2D" parent="."]
+position = Vector2(1137, 270)
+script = ExtResource("2_glstp")
+
+[node name="background" type="Sprite2D" parent="inventory"]
+position = Vector2(6, 8)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_k6440")
+
+[node name="openBtn" type="TextureButton" parent="inventory"]
+offset_left = -257.0
+offset_top = -71.0
+offset_right = -196.0
+offset_bottom = -18.0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+
+[node name="sale_items" type="Node2D" parent="inventory"]
+
+[node name="anim" type="AnimationPlayer" parent="inventory"]
+libraries = {
+&"": SubResource("AnimationLibrary_2mf8c")
+}
+
+[node name="GridContainer" type="GridContainer" parent="inventory"]
+offset_left = -91.0
+offset_top = -200.0
+offset_right = 168.0
+offset_bottom = 55.0
+theme_override_constants/h_separation = 68
+theme_override_constants/v_separation = 68
+columns = 4
+
+[node name="invSlot_01" parent="inventory/GridContainer" instance=ExtResource("4_68yo0")]
+layout_mode = 2
+
+[node name="invSlot_02" parent="inventory/GridContainer" instance=ExtResource("4_68yo0")]
+layout_mode = 2
+
+[node name="invSlot_03" parent="inventory/GridContainer" instance=ExtResource("4_68yo0")]
+layout_mode = 2
+
+[node name="invSlot_04" parent="inventory/GridContainer" instance=ExtResource("4_68yo0")]
+layout_mode = 2
+
+[node name="invSlot_05" parent="inventory/GridContainer" instance=ExtResource("4_68yo0")]
+layout_mode = 2
+
+[node name="invSlot_06" parent="inventory/GridContainer" instance=ExtResource("4_68yo0")]
+layout_mode = 2
+
+[node name="invSlot_07" parent="inventory/GridContainer" instance=ExtResource("4_68yo0")]
+layout_mode = 2
+
+[node name="invSlot_08" parent="inventory/GridContainer" instance=ExtResource("4_68yo0")]
+layout_mode = 2
+
+[node name="invSlot_09" parent="inventory/GridContainer" instance=ExtResource("4_68yo0")]
+layout_mode = 2
+
+[node name="invSlot_10" parent="inventory/GridContainer" instance=ExtResource("4_68yo0")]
+layout_mode = 2
+
+[node name="invSlot_11" parent="inventory/GridContainer" instance=ExtResource("4_68yo0")]
+layout_mode = 2
+
+[node name="invSlot_12" parent="inventory/GridContainer" instance=ExtResource("4_68yo0")]
+layout_mode = 2
+
+[node name="invSlot_13" parent="inventory/GridContainer" instance=ExtResource("4_68yo0")]
+layout_mode = 2
+
+[node name="invSlot_14" parent="inventory/GridContainer" instance=ExtResource("4_68yo0")]
+layout_mode = 2
+
+[node name="invSlot_15" parent="inventory/GridContainer" instance=ExtResource("4_68yo0")]
+layout_mode = 2
+
+[node name="invSlot_16" parent="inventory/GridContainer" instance=ExtResource("4_68yo0")]
+layout_mode = 2
+
+[node name="item" type="Sprite2D" parent="."]
+position = Vector2(120, 445)
+texture = ExtResource("6_pjj5l")
+
+[node name="item_sprite" type="Sprite2D" parent="item"]
+
+[node name="item_mouse_area" type="Area2D" parent="item"]
+
+[node name="collision" type="CollisionShape2D" parent="item/item_mouse_area"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_5qhro")
+
+[node name="offer" type="Sprite2D" parent="."]
+position = Vector2(295, 445)
+texture = ExtResource("5_6h0rx")
+
+[node name="offer_sprite" type="Sprite2D" parent="offer"]
+
+[node name="offer_mouse_area" type="Area2D" parent="offer"]
+position = Vector2(-2, -2)
+
+[node name="collision" type="CollisionShape2D" parent="offer/offer_mouse_area"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_glstp")
+
+[node name="description" type="Sprite2D" parent="."]
+position = Vector2(213, 292)
+texture = ExtResource("6_glstp")
+
+[node name="description_text" type="RichTextLabel" parent="description"]
+offset_left = -91.0
+offset_top = -33.0
+offset_right = 8273.0
+offset_bottom = 2831.0
+scale = Vector2(0.022, 0.022)
+theme_override_font_sizes/normal_font_size = 500
+text = "Descrição"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="item_name_background" type="Sprite2D" parent="description"]
+position = Vector2(-15, -51)
+texture = ExtResource("8_k6440")
+
+[node name="name_text" type="RichTextLabel" parent="description"]
+offset_left = -78.0
+offset_top = -64.0
+offset_right = 5002.0
+offset_bottom = 1096.0
+scale = Vector2(0.025, 0.025)
+theme_override_font_sizes/normal_font_size = 500
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="toggled" from="inventory/openBtn" to="inventory" method="_on_open_btn_toggled"]
+[connection signal="mouse_entered" from="item/item_mouse_area" to="." method="_on_item_mouse_area_mouse_entered"]
+[connection signal="mouse_exited" from="item/item_mouse_area" to="." method="_on_item_mouse_area_mouse_exited"]
+[connection signal="mouse_entered" from="offer/offer_mouse_area" to="." method="_on_offer_mouse_area_mouse_entered"]
+[connection signal="mouse_exited" from="offer/offer_mouse_area" to="." method="_on_offer_mouse_area_mouse_exited"]

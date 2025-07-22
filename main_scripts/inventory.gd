@@ -1,7 +1,12 @@
 extends Node2D
 
 var is_open = false
-var player_inventory: Dictionary = {"canned_cow": 3}
+var player_inventory: Dictionary = {"canned_cow": 3,
+								 "can_of_motivation": 1,
+								 "catwo": 1,
+								 "officer_mask": 1,
+								"whip_whop": 1,
+								"can_of_air": 1}
 
 @onready var inventory_slots: Array = $GridContainer.get_children()
 

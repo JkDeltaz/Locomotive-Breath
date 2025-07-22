@@ -12,18 +12,24 @@ var offer_info
 func _ready():
 	Global.connect("start_trading", Callable(self, "start"))
 	$description.visible = false
+	
+	$trade_btn.visible = false
 
 func start(character):
 	starting_item = character.main_offers.keys()[0] # Depois deixar aleatório com peso baseado na preferência
 	update_item(starting_item)
 
-
 # PLAYER OFFER
 
 func set_player_offer(item):
 	player_offer = Items.item_dict.find_key(item)
-	Characters.current_trade_item_dialogue(player_offer)
+	Characters.current_trade_item_dialogue(starting_item, player_offer)
 	update_offer(player_offer)
+	
+	if Characters.check_player_offer(player_offer) == "accept":
+		$trade_btn.visible = true
+	else:
+		$trade_btn.visible = false
 
 func update_offer(item_name):
 	offer_info = Items.get_item(item_name)

@@ -19,13 +19,22 @@ func get_info(character_name):
 func set_current_character(character):
 	current_character = character
 
-func current_trade_item_dialogue(item):
-	
+func current_trade_item_dialogue(offer, item):
 	var character_name = current_character.get_name()
+	var current_character_info = current_character.get_info()
 	
 	var item_rating = current_character.get_main_preferences().get(item)
-	if item_rating == 100:
+	
+	
+	if offer == item:
+		DialogueManager.show_dialogue_balloon(load(current_character_info.get("dialogue_path")), "offered_same_item")
+	elif item_rating == 100:
 		DialogueManager.show_dialogue_balloon(load("res://dialogues/"+character_name+".dialogue"), "offered_prefered_item")
 	else:
 		DialogueManager.show_dialogue_balloon(load("res://dialogues/"+character_name+".dialogue"), "offered_disliked_item")
-		
+
+func check_player_offer(offer: String) -> String:
+	var item_rating = current_character.get_main_preferences().get(offer)
+	if item_rating == null:
+		current_character.dealbreak(Items.get_item(offer))
+	return "accept"

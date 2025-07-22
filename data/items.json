@@ -15,9 +15,31 @@
 	},
 	"catwo": {
 		"name": "Catwo",
-		"description": "Não faço a menor ideia do que isso seja. Fontes confiáveis me dizem que vale 50 bufos.",
+		"description": "Eu não faço a menor ideia do que seja isso. Fontes anônimas me dizem que vale 50 bufos.",
 		"path": "res://assets/items/LB_OBJ_Catwo.png",
-		"price": 30,
+		"price": 50,
+		"scale": [0.6, 0.6]
+	},
+	
+	"can_of_air": {
+		"name": "Lata de Ar",
+		"description": "Uma lata com ar puro, é extremamente desejada. Eu não deveria vender por um preço barato.",
+		"path": "res://assets/items/LB_OBJ_Can_Of_Air.png",
+		"price": 300,
+		"scale": [0.6, 0.6]
+	},
+	"whip_whop": {
+		"name": "Chico Chicote",
+		"description": "É um chicote de procedências duvidosas. Vale 50 bufos.",
+		"path": "res://assets/items/LB_OBJ_Chico_Chicote.png",
+		"price": 50,
+		"scale": [0.6, 0.6]
+	},
+	"officer_mask": {
+		"name": "Mascára Morfânica",
+		"description": "Uma mascára que te protege do gás morfânio. Vale o suficiente pra eu não ter que me preocupar com dinheiro por um tempo.",
+		"path": "res://assets/items/LB_OBJ_Officer_Mask.png",
+		"price": 100,
 		"scale": [0.6, 0.6]
 	}
 }

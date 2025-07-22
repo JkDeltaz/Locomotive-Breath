@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dihad4tcdqt2v"]
+[gd_scene load_steps=8 format=3 uid="uid://dihad4tcdqt2v"]
 
 [ext_resource type="Script" uid="uid://c5fyvmghqogpu" path="res://main_scripts/main_camera.gd" id="1_8e5s8"]
 [ext_resource type="Script" uid="uid://2byojt8407br" path="res://main_scripts/main.gd" id="1_xxyhp"]
 [ext_resource type="Texture2D" uid="uid://beoipi6la2joo" path="res://assets/backgrounds/bg2.png" id="2_yp5qj"]
+[ext_resource type="PackedScene" uid="uid://dh7hnclqbnor1" path="res://main_scenes/radio.tscn" id="3_yp5qj"]
 [ext_resource type="Texture2D" uid="uid://u3m6gethl5e2" path="res://assets/backgrounds/mesa.png" id="4_yp5qj"]
 [ext_resource type="PackedScene" uid="uid://lpxqo14gcqhi" path="res://main_scenes/gui.tscn" id="7_46m03"]
 
@@ -18,6 +19,9 @@ script = ExtResource("1_xxyhp")
 position = Vector2(481.6, 339.6)
 scale = Vector2(0.324, 0.323)
 texture = ExtResource("2_yp5qj")
+
+[node name="Radio" parent="." instance=ExtResource("3_yp5qj")]
+position = Vector2(359, 307)
 
 [node name="table" type="Sprite2D" parent="."]
 position = Vector2(479.5, 554.5)

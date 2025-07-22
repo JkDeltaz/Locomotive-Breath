@@ -3,8 +3,10 @@
 		"name": "Flavina Tourina",
 		"path": "res://characters/flavina.tscn",
 		"voice_path": "res://assets/audio/character_voices/Flav_Voice.mp3",
-		"pitch_range": [0.9, 1.1],
-		"talk_speed": 0.04, 
+		"dialogue_path": "res://dialogues/flavina.dialogue",
+		"pitch_range": [0.8, 1.05],
+		"talk_speed": 0.07,
 		"loyalty": 0,
+		"money": 200,
 	}
 }

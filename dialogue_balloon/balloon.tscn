@@ -52,7 +52,6 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="Theme" id="Theme_qq3yp"]
 default_font_size = 20
-Button/colors/font_color = Color(0.65098, 0.521569, 0.980392, 1)
 Button/styles/disabled = SubResource("StyleBoxFlat_spyqn")
 Button/styles/focus = SubResource("StyleBoxFlat_ri4m3")
 Button/styles/hover = SubResource("StyleBoxFlat_e0njw")
@@ -109,16 +108,15 @@ offset_right = 24.0
 offset_bottom = -35.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Balloon/Panel/Dialogue"]
 layout_mode = 2
-mouse_filter = 2
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon/Panel/Dialogue/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-mouse_filter = 2
+mouse_filter = 1
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -139,10 +137,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -159.0
-offset_top = -625.0
-offset_right = 482.0
-offset_bottom = -221.0
+offset_left = 135.0
+offset_top = -555.0
+offset_right = 484.0
+offset_bottom = -151.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -163,5 +161,6 @@ text = "Response example"
 stream = ExtResource("5_mtkbh")
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
+[connection signal="gui_input" from="Balloon/Panel/Dialogue" to="." method="_on_balloon_gui_input"]
 [connection signal="spoke" from="Balloon/Panel/Dialogue/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_spoke"]
 [connection signal="response_selected" from="Balloon/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://tvqmq7x1yxbh"
+path="res://.godot/imported/(LB) Main Menu.mp3-a94310381826ac4aba48356415ac4d26.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/(LB) Main Menu.mp3"
+dest_files=["res://.godot/imported/(LB) Main Menu.mp3-a94310381826ac4aba48356415ac4d26.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

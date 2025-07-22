@@ -1,11 +1,28 @@
 extends RichTextLabel
 
 var minutes = 0
-var hours = 0
+var hours = 12
 
-var am_or_pm = "am"
+var am_or_pm = "pm"
 
-@onready var clock_anim = get_parent().get_node("clock_border/anim")
+var _hidden = false
+
+@onready var clock_anim = get_parent().get_node("anim")
+@onready var slide_anim = get_parent().get_node("slide_anim")
+
+func _ready():
+	clock_anim.play("afternoon")
+
+func _process(_delta):
+	if Input.is_action_just_pressed("hide_clock"):
+		if _hidden:
+			slide_anim.play("slide_in")
+			_hidden = false
+			AudioManager.play_audio("static_noise", -35)
+		else:
+			slide_anim.play("slide_out")
+			_hidden = true
+			AudioManager.stop_audio("static_noise")
 
 func _on_clock_timer_timeout() -> void:
 	minutes += 1
@@ -25,6 +42,7 @@ func _on_clock_timer_timeout() -> void:
 	var hour_text = str(hours) if hours >= 10 else "0"+str(hours)
 	var minutes_text = str(minutes) if minutes >= 10 else "0"+str(minutes)
 	update_clock(hour_text, minutes_text)
+
 
 func update_clock(hour_text, minutes_text):
 	if minutes%10 == 0:

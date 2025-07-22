@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://cirw5tsvi7i57"]
+
+[ext_resource type="Script" uid="uid://c1ywm13708edu" path="res://main_scripts/music_manager.gd" id="1_71pxa"]
+[ext_resource type="AudioStream" uid="uid://tvqmq7x1yxbh" path="res://assets/audio/music/(LB) Main Menu.mp3" id="2_71pxa"]
+[ext_resource type="AudioStream" uid="uid://muhhbqaqtytr" path="res://assets/audio/radio_music/(lb) Welcome to Locomotive Breath.mp3" id="3_uk7h4"]
+[ext_resource type="AudioStream" uid="uid://dq113pqn8kgyn" path="res://assets/audio/radio_music/(lb) Outsider.mp3" id="4_3hcr3"]
+[ext_resource type="AudioStream" uid="uid://bvhbvfqw5rs84" path="res://assets/audio/music/(LB) Winds.mp3" id="4_ka767"]
+
+[node name="MusicManager" type="Node"]
+script = ExtResource("1_71pxa")
+
+[node name="menu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_71pxa")
+
+[node name="welcome to locomotive breath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_uk7h4")
+
+[node name="outsider" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3hcr3")
+
+[node name="winds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ka767")
+pitch_scale = 0.8

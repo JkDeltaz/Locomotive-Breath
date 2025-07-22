@@ -46,12 +46,13 @@ texture = ExtResource("3_wrjnm")
 
 [node name="description_text" type="RichTextLabel" parent="description"]
 offset_left = -91.0
-offset_top = -33.0
+offset_top = -24.0
 offset_right = 8273.0
-offset_bottom = 2831.0
+offset_bottom = 2067.0
 scale = Vector2(0.022, 0.022)
 theme_override_font_sizes/normal_font_size = 500
 text = "Descrição"
+scroll_following = true
 horizontal_alignment = 1
 vertical_alignment = 1
 

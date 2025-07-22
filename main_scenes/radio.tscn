@@ -1,0 +1,227 @@
+[gd_scene load_steps=18 format=3 uid="uid://dh7hnclqbnor1"]
+
+[ext_resource type="Texture2D" uid="uid://ba38qpn3f8puf" path="res://assets/radio/RADIO.png" id="1_5iknn"]
+[ext_resource type="Script" uid="uid://dutpjur1c55r3" path="res://main_scripts/radio.gd" id="1_w5q8s"]
+[ext_resource type="Texture2D" uid="uid://tvogvc6qsy6h" path="res://assets/radio/RADIOON.png" id="2_swpto"]
+[ext_resource type="Texture2D" uid="uid://dgone7ia6asne" path="res://assets/radio/radioInterface.png" id="4_m672m"]
+[ext_resource type="Texture2D" uid="uid://dobkwpbqvaluh" path="res://assets/radio/left_unselected.png" id="5_a65mr"]
+[ext_resource type="Texture2D" uid="uid://45b6xwk4iyut" path="res://assets/radio/left_selected.png" id="6_8kgi7"]
+[ext_resource type="Texture2D" uid="uid://cn8245cagiwqy" path="res://assets/radio/right_unselected.png" id="7_7xplj"]
+[ext_resource type="Texture2D" uid="uid://bfkm8gx7204yq" path="res://assets/radio/right_selected.png" id="8_a0nm2"]
+[ext_resource type="Texture2D" uid="uid://b3vhdxl1aral" path="res://assets/radio/Off1.png" id="9_a0nm2"]
+[ext_resource type="Texture2D" uid="uid://buspqbi2rir0v" path="res://assets/radio/Off2.png" id="10_i052i"]
+
+[sub_resource type="Animation" id="Animation_swpto"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_5iknn")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.16, 0.16)]
+}
+
+[sub_resource type="Animation" id="Animation_5iknn"]
+resource_name = "off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_5iknn")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.16, 0.16)]
+}
+
+[sub_resource type="Animation" id="Animation_w5q8s"]
+resource_name = "on"
+length = 0.2
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_swpto")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.16, 0.16), Vector2(0.16, 0.161)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_swpto"]
+_data = {
+&"RESET": SubResource("Animation_swpto"),
+&"off": SubResource("Animation_5iknn"),
+&"on": SubResource("Animation_w5q8s")
+}
+
+[sub_resource type="Animation" id="Animation_i052i"]
+resource_name = "default"
+length = 4.0
+loop_mode = 2
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("current_music_text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(0, 1, 0, 1), Color(0, 0, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w8f55"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("current_music_text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w8f55"]
+_data = {
+&"RESET": SubResource("Animation_w8f55"),
+&"default": SubResource("Animation_i052i")
+}
+
+[node name="radio" type="Node2D"]
+script = ExtResource("1_w5q8s")
+
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("1_5iknn")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_swpto")
+}
+autoplay = "off"
+
+[node name="onBtn" type="Button" parent="."]
+offset_left = -29.0
+offset_top = 2.0
+offset_right = 38.0
+offset_bottom = 31.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="radio_menu" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(4, -53)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_m672m")
+
+[node name="leftBtn" type="TextureButton" parent="radio_menu"]
+offset_left = -141.667
+offset_top = -35.0
+offset_right = 4.33333
+offset_bottom = 86.0
+scale = Vector2(0.7, 0.7)
+focus_mode = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_a65mr")
+texture_hover = ExtResource("6_8kgi7")
+
+[node name="rightBtn" type="TextureButton" parent="radio_menu"]
+offset_left = 41.6667
+offset_top = -41.6667
+offset_right = 187.667
+offset_bottom = 84.3333
+scale = Vector2(0.7, 0.7)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("7_7xplj")
+texture_hover = ExtResource("8_a0nm2")
+
+[node name="offBtn" type="TextureButton" parent="radio_menu"]
+offset_left = -53.3333
+offset_top = -45.0
+offset_right = 98.6667
+offset_bottom = 104.0
+scale = Vector2(0.7, 0.7)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("9_a0nm2")
+texture_hover = ExtResource("10_i052i")
+
+[node name="canvas_layer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="current_music_text" type="RichTextLabel" parent="canvas_layer"]
+modulate = Color(0, 0, 1, 1)
+offset_left = 47.0
+offset_top = 525.0
+offset_right = 31447.0
+offset_bottom = 1265.0
+scale = Vector2(0.02, 0.02)
+theme_override_font_sizes/normal_font_size = 500
+text = "Agora tocando: "
+fit_content = true
+scroll_active = false
+
+[node name="text_anim" type="AnimationPlayer" parent="canvas_layer"]
+libraries = {
+&"": SubResource("AnimationLibrary_w8f55")
+}
+autoplay = "default"
+
+[connection signal="pressed" from="onBtn" to="." method="_on_on_btn_pressed"]
+[connection signal="pressed" from="radio_menu/leftBtn" to="." method="previous_music"]
+[connection signal="pressed" from="radio_menu/rightBtn" to="." method="next_music"]
+[connection signal="pressed" from="radio_menu/offBtn" to="." method="_on_off_btn_pressed"]

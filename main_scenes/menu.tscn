@@ -1,0 +1,137 @@
+[gd_scene load_steps=11 format=3 uid="uid://cnsp0ffys3hxf"]
+
+[ext_resource type="Script" uid="uid://clq4j6hgefmtm" path="res://main_scripts/menu.gd" id="1_38vls"]
+[ext_resource type="Texture2D" uid="uid://b3kco0miwnaw2" path="res://assets/backgrounds/menu/realbg.png" id="2_5e22r"]
+[ext_resource type="Texture2D" uid="uid://dekewqmfl5wul" path="res://assets/backgrounds/menu/Clouds2.png" id="3_hudif"]
+[ext_resource type="Texture2D" uid="uid://cj5r57ntm040x" path="res://assets/backgrounds/menu/CloudDegadree.png" id="3_xuoyj"]
+[ext_resource type="Texture2D" uid="uid://c0vygxr4v3ul7" path="res://assets/backgrounds/menu/Clouds1.png" id="4_xuoyj"]
+[ext_resource type="Texture2D" uid="uid://c5iuvkrpp68oe" path="res://assets/backgrounds/menu/Hills.png" id="5_ut1lq"]
+[ext_resource type="Texture2D" uid="uid://ci8kfhhifcjdl" path="res://assets/backgrounds/menu/LocomotiveOMG.png" id="6_8s78u"]
+
+[sub_resource type="Animation" id="Animation_xuoyj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ParallaxLayer2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(501.818, 240)]
+}
+
+[sub_resource type="Animation" id="Animation_hudif"]
+resource_name = "clouds_moving"
+length = 720.0
+loop_mode = 2
+step = 60.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ParallaxLayer2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 720),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(501.818, 240), Vector2(-1416.36, 240)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xuoyj"]
+_data = {
+&"RESET": SubResource("Animation_xuoyj"),
+&"clouds_moving": SubResource("Animation_hudif")
+}
+
+[node name="menu" type="Node2D"]
+script = ExtResource("1_38vls")
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(452, 270)
+zoom = Vector2(1.1, 1.1)
+limit_left = 0
+limit_top = 0
+limit_right = 960
+limit_bottom = 540
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+
+[node name="menu" type="ParallaxBackground" parent="."]
+scale = Vector2(0.55, 0.55)
+transform = Transform2D(0.55, 0, 0, 0.55, 0, 0)
+scroll_offset = Vector2(0.5, 1)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="menu"]
+position = Vector2(398.182, 269.091)
+
+[node name="sprite" type="Sprite2D" parent="menu/ParallaxLayer"]
+position = Vector2(480, 270)
+texture = ExtResource("2_5e22r")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="menu"]
+position = Vector2(398.182, 269.091)
+
+[node name="sprite" type="Sprite2D" parent="menu/ParallaxLayer6"]
+position = Vector2(480, 270)
+texture = ExtResource("3_xuoyj")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="menu"]
+position = Vector2(501.818, 240)
+motion_scale = Vector2(1.1, 1.1)
+
+[node name="sprite" type="Sprite2D" parent="menu/ParallaxLayer2"]
+position = Vector2(378.182, 312.727)
+texture = ExtResource("3_hudif")
+
+[node name="sprite2" type="Sprite2D" parent="menu/ParallaxLayer2"]
+position = Vector2(2296.36, 312.727)
+scale = Vector2(-1, 1)
+texture = ExtResource("3_hudif")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="menu"]
+position = Vector2(398.182, 269.091)
+motion_scale = Vector2(1.2, 1.2)
+
+[node name="sprite" type="Sprite2D" parent="menu/ParallaxLayer3"]
+position = Vector2(491, 270)
+texture = ExtResource("4_xuoyj")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="menu"]
+position = Vector2(398.182, 269.091)
+motion_scale = Vector2(1.3, 1.3)
+
+[node name="sprite" type="Sprite2D" parent="menu/ParallaxLayer4"]
+position = Vector2(480, 390)
+texture = ExtResource("5_ut1lq")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="menu"]
+position = Vector2(438.182, 156.364)
+motion_scale = Vector2(1.4, 1.4)
+
+[node name="sprite" type="Sprite2D" parent="menu/ParallaxLayer5"]
+position = Vector2(553, 261)
+texture = ExtResource("6_8s78u")
+
+[node name="anim" type="AnimationPlayer" parent="menu"]
+libraries = {
+&"": SubResource("AnimationLibrary_xuoyj")
+}
+autoplay = "clouds_moving"
+
+[node name="button_canvas" type="CanvasLayer" parent="."]
+
+[node name="playBtn" type="Button" parent="button_canvas"]
+offset_left = 310.0
+offset_top = 289.0
+offset_right = 1855.0
+offset_bottom = 1159.0
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/font_size = 500
+text = "Jogar"
+
+[connection signal="pressed" from="button_canvas/playBtn" to="." method="_on_play_btn_pressed"]
