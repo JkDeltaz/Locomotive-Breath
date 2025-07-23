@@ -191,7 +191,7 @@ func set_character():
 		$%DialogueLabel.seconds_per_step = talk_speed
 		talk_sound.stream = load(voice_path)
 
-func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
+func _on_dialogue_label_spoke(letter: String, _letter_index: int, _speed: float) -> void:
 	if not character_info:
 		set_character()
 	

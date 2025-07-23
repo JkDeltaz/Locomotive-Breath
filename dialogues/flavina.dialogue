@@ -11,6 +11,24 @@ Ele nem ouve as múuuusicas que coloco pra ele!
 do play_character_animation("default")
 => END!
 
+~ talk
+
+do play_character_animation("talk")
+
+O que foi?
+- Nada
+- O que aconteceu com seu irmão?
+	Ele...  Ele sempre vai expedições para conseguir conseguir coisas para nós comermos.
+	Mas da última vez ele voltou muuuuito mais doente do que o normal, 
+	ele nunca me escuta quando falo para evitar as áreas mais infectadas!
+	Por isso quero comprar uma máscara para ele...
+- Você quer comprar ao invés de trocar?
+	Eu tenho 200 buuuufos!
+
+do play_character_animation("default")
+
+=> END
+
 ~ offered_prefered_item
 
 do play_character_animation("talk")

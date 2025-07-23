@@ -8,6 +8,8 @@ var current_character
 @onready var json_as_text = FileAccess.get_file_as_string(file)
 @onready var character_dict = JSON.parse_string(json_as_text)
 
+var offered_disliked_item = 0
+
 func get_random_character() -> Sprite2D:
 	var character_name = unlocked_characters[randi() % len(unlocked_characters)]
 	var character_path = character_dict.get(character_name).get("path")
@@ -35,6 +37,17 @@ func current_trade_item_dialogue(offer, item):
 
 func check_player_offer(offer: String) -> String:
 	var item_rating = current_character.get_main_preferences().get(offer)
+	
+	if current_character.get_disliked_item(offer) != null:
+		item_rating = 0
+		offered_disliked_item += 1
+		if offered_disliked_item > current_character.get_patience():
+			current_character.remove_loyalty(offer)
+	
 	if item_rating == null:
-		current_character.dealbreak(Items.get_item(offer))
-	return "accept"
+		item_rating = current_character.dealbreak(Items.get_item(offer))
+	
+	if item_rating < 50:
+		return "accept"
+	
+	return "refuse"

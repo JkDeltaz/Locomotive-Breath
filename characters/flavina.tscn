@@ -223,4 +223,13 @@ position = Vector2(480.08, 338)
 scale = Vector2(0.322744, 0.32)
 texture = ExtResource("3_7pdbd")
 
+[node name="talkBtn" type="Button" parent="."]
+offset_left = -86.0
+offset_top = -210.0
+offset_right = 77.0
+offset_bottom = 239.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+flat = true
+
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
