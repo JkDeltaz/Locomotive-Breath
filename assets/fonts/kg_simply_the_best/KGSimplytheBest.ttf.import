@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bt7jaglm25lo4"
-path="res://.godot/imported/DS-DIGII.TTF-ae819ab163d04093200cb45224d52122.fontdata"
+uid="uid://bdd3i2gruht6v"
+path="res://.godot/imported/KGSimplytheBest.ttf-262daf772276dfa576955614dd052d73.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/ds_digital/DS-DIGII.TTF"
-dest_files=["res://.godot/imported/DS-DIGII.TTF-ae819ab163d04093200cb45224d52122.fontdata"]
+source_file="res://assets/fonts/kg_simply_the_best/KGSimplytheBest.ttf"
+dest_files=["res://.godot/imported/KGSimplytheBest.ttf-262daf772276dfa576955614dd052d73.fontdata"]
 
 [params]
 

@@ -1,12 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckvgyvclnwggo"]
+[gd_scene load_steps=3 format=3 uid="uid://ckvgyvclnwggo"]
 
 [ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="1_cital"]
+[ext_resource type="FontFile" uid="uid://bdd3i2gruht6v" path="res://assets/fonts/kg_simply_the_best/KGSimplytheBest.ttf" id="1_vdugj"]
 
 [node name="DialogueLabel" type="RichTextLabel"]
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("1_vdugj")
+theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 fit_content = true
 scroll_active = false

@@ -3,7 +3,7 @@
 do play_character_animation("talk")
 Boooom dia!
 - Bom dia!
-- ZAAAAAAMNNN
+- Vai embora
 	Isso foi muuuuito rude sabia?
 Eu tenho essa vaca de chocolate, eu troco por uuuuma Máscara de Morfâno, meu irmão tá precisando muuuuuito!
 Ele nem ouve as múuuusicas que coloco pra ele!
@@ -19,8 +19,7 @@ O que foi?
 - Nada
 - O que aconteceu com seu irmão?
 	Ele...  Ele sempre vai expedições para conseguir conseguir coisas para nós comermos.
-	Mas da última vez ele voltou muuuuito mais doente do que o normal, 
-	ele nunca me escuta quando falo para evitar as áreas mais infectadas!
+	Mas da última vez ele voltou muuuuito mais doente do que o normal, ele nunca me escuta quando falo para evitar as áreas mais infectadas!
 	Por isso quero comprar uma máscara para ele...
 - Você quer comprar ao invés de trocar?
 	Eu tenho 200 buuuufos!
@@ -49,40 +48,38 @@ do play_character_animation("default")
 
 do play_character_animation("talk")
 Uhm... Eu deveria saber o que é isso?
-Agora eu era herói
-e meu cavalo só falava inglês
-a noiva do cowboy
-era você além das outras três
-eu enfrentava os batalhões
-dos alemães e seus canhões
-guardava o meu bodoque e ensaiava um roque para as matinês
-agora eu era o rei
-era o bedel e era também juiz
-e pela minha lei
-a gente era obrigado a ser feliz
-pois você
-foi a princesa que eu fiz coroar
-era tão linda de se adimirar
-que andava nua pelo meu pais
-não
-não fuja não
-finja que agora eu era o seu brinquedo
-eu era o seu peão
-o seu bicho preferido
-sim, me de a mão
-a gente agora já não tinha medo
-no tempo da maldade acho que a gente nem
-tinha nascido
-agora era fatal
-que o faz de conta terminasse assim
-pra lá deste quintal
-era uma noite que não tem mais fim
-pois você
-sumiu do mundo sem me avisar
-agora eu era um louco a perguntar
-o que que a vida vai fazer de mim
+do play_character_animation("default")
 
+=> END
 
+~ traded_liked_item
+
+do play_character_animation("talk")
+Muuuito obrigada! Voltarei aqui de novo!
+do play_character_animation("default")
+
+=> END
+
+~ traded_bargain
+
+do play_character_animation("talk")
+Hmmm... Vai ter que servir. Obrigada!
+do play_character_animation("default")
+
+=> END
+
+~ traded_normal_item
+
+do play_character_animation("talk")
+Obrigada! Alguma hora voltarei aqui!
+do play_character_animation("default")
+
+=> END
+
+~ traded_favorite_item
+
+do play_character_animation("talk")
+Você realmente vai trocar? Muuuito muito obrigada! Voltarei aqui em breve com notícias do meu irmão!
 do play_character_animation("default")
 
 => END

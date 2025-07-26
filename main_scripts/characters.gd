@@ -19,6 +19,10 @@ func get_info(character_name):
 	return character_dict.get(character_name)
 
 func set_current_character(character):
+	
+	if character == null:
+		get_tree().current_scene.call("despawn_character")
+	
 	current_character = character
 
 func current_trade_item_dialogue(offer, item):
@@ -47,7 +51,23 @@ func check_player_offer(offer: String) -> String:
 	if item_rating == null:
 		item_rating = current_character.dealbreak(Items.get_item(offer))
 	
-	if item_rating < 50:
+	if item_rating > 50:
 		return "accept"
 	
 	return "refuse"
+
+func completed_trade(offer):
+	var character_name = current_character.get_name()
+	var item_rating = current_character.get_main_preferences().get(offer)
+	DialogueManager.dialogue_ended.connect(current_character.walk_out)
+	
+	if item_rating == null:
+		DialogueManager.show_dialogue_balloon(load("res://dialogues/"+character_name+".dialogue"), "traded_bargain")
+		return
+
+	if item_rating > 50 and item_rating < 90:
+		DialogueManager.show_dialogue_balloon(load("res://dialogues/"+character_name+".dialogue"), "traded_liked_item")
+	elif item_rating <= 50:
+		DialogueManager.show_dialogue_balloon(load("res://dialogues/"+character_name+".dialogue"), "traded_normal_item")
+	elif item_rating >= 90:
+		DialogueManager.show_dialogue_balloon(load("res://dialogues/"+character_name+".dialogue"), "traded_favorite_item")

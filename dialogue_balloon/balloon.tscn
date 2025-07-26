@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dr14iwan4xrci"]
+[gd_scene load_steps=12 format=3 uid="uid://dr14iwan4xrci"]
 
 [ext_resource type="Script" uid="uid://cqfv1c4xx085c" path="res://dialogue_balloon/balloon.gd" id="1_36de5"]
 [ext_resource type="Texture2D" uid="uid://bsdifmrfjogji" path="res://assets/gui/GUIDemo.png" id="2_3vlmg"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 [ext_resource type="AudioStream" uid="uid://dyvlnhwf4thy6" path="res://assets/audio/character_voices/Flav_Voice.mp3" id="5_mtkbh"]
+[ext_resource type="FontFile" uid="uid://bdd3i2gruht6v" path="res://assets/fonts/kg_simply_the_best/KGSimplytheBest.ttf" id="5_x2ikp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -137,10 +138,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 67.0
-offset_top = -556.0
-offset_right = 449.0
-offset_bottom = -152.0
+offset_left = 111.0
+offset_top = -525.0
+offset_right = 475.0
+offset_bottom = -162.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
@@ -148,6 +149,7 @@ mouse_filter = 2
 [node name="ResponsesMenu" type="VBoxContainer" parent="Balloon/Responses" node_paths=PackedStringArray("response_template")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 9
 size_flags_vertical = 8
 theme_override_constants/separation = 2
 script = ExtResource("3_72ixx")
@@ -155,6 +157,8 @@ response_template = NodePath("ResponseExample")
 
 [node name="ResponseExample" type="Button" parent="Balloon/Responses/ResponsesMenu"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_x2ikp")
+theme_override_font_sizes/font_size = 20
 text = "Response example"
 
 [node name="talk_sound" type="AudioStreamPlayer" parent="."]

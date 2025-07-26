@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnsp0ffys3hxf"]
+[gd_scene load_steps=17 format=3 uid="uid://cnsp0ffys3hxf"]
 
 [ext_resource type="Script" uid="uid://clq4j6hgefmtm" path="res://main_scripts/menu.gd" id="1_38vls"]
 [ext_resource type="Texture2D" uid="uid://b3kco0miwnaw2" path="res://assets/backgrounds/menu/realbg.png" id="2_5e22r"]
@@ -7,6 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://c0vygxr4v3ul7" path="res://assets/backgrounds/menu/Clouds1.png" id="4_xuoyj"]
 [ext_resource type="Texture2D" uid="uid://c5iuvkrpp68oe" path="res://assets/backgrounds/menu/Hills.png" id="5_ut1lq"]
 [ext_resource type="Texture2D" uid="uid://ci8kfhhifcjdl" path="res://assets/backgrounds/menu/LocomotiveOMG.png" id="6_8s78u"]
+[ext_resource type="Texture2D" uid="uid://biiq1cto1w6ag" path="res://assets/menu_buttons/Menu_button_holder.png" id="8_xuoyj"]
+[ext_resource type="Script" uid="uid://cwrkfgxccqoeq" path="res://minor_scripts/button_holder.gd" id="9_ut1lq"]
+[ext_resource type="Texture2D" uid="uid://bc41c3dre7yed" path="res://assets/menu_buttons/JOGAR.png" id="10_8s78u"]
+[ext_resource type="Texture2D" uid="uid://bdlmf871bltp4" path="res://assets/menu_buttons/OPTIONS.png" id="11_fhvun"]
+[ext_resource type="Texture2D" uid="uid://lfean3p2sdne" path="res://assets/menu_buttons/CONQUISTAS.png" id="12_k1old"]
+[ext_resource type="Texture2D" uid="uid://d1o56t68og0xe" path="res://assets/menu_buttons/SAIR.png" id="13_78apb"]
 
 [sub_resource type="Animation" id="Animation_xuoyj"]
 length = 0.001
@@ -125,13 +131,52 @@ autoplay = "clouds_moving"
 
 [node name="button_canvas" type="CanvasLayer" parent="."]
 
-[node name="playBtn" type="Button" parent="button_canvas"]
-offset_left = 310.0
-offset_top = 289.0
-offset_right = 1855.0
-offset_bottom = 1159.0
-scale = Vector2(0.2, 0.2)
-theme_override_font_sizes/font_size = 500
-text = "Jogar"
+[node name="button_holder" type="Sprite2D" parent="button_canvas"]
+position = Vector2(90, 288)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("8_xuoyj")
+script = ExtResource("9_ut1lq")
 
-[connection signal="pressed" from="button_canvas/playBtn" to="." method="_on_play_btn_pressed"]
+[node name="playBtn" type="Button" parent="button_canvas/button_holder"]
+z_index = -1
+offset_left = 113.333
+offset_top = -540.0
+offset_right = 407.333
+offset_bottom = -351.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+icon = ExtResource("10_8s78u")
+flat = true
+
+[node name="optionsBtn" type="Button" parent="button_canvas/button_holder"]
+z_index = -1
+offset_left = 103.333
+offset_top = -323.333
+offset_right = 407.333
+offset_bottom = -134.333
+focus_mode = 0
+mouse_default_cursor_shape = 2
+icon = ExtResource("11_fhvun")
+flat = true
+
+[node name="achievementsBtn" type="Button" parent="button_canvas/button_holder"]
+z_index = -1
+offset_left = 93.3333
+offset_top = -96.6667
+offset_right = 457.333
+offset_bottom = 131.333
+focus_mode = 0
+mouse_default_cursor_shape = 2
+icon = ExtResource("12_k1old")
+flat = true
+
+[node name="exitBtn" type="Button" parent="button_canvas/button_holder"]
+z_index = -1
+offset_left = 90.0
+offset_top = 210.0
+offset_right = 444.0
+offset_bottom = 430.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+icon = ExtResource("13_78apb")
+flat = true

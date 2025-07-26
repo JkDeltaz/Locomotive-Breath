@@ -194,6 +194,7 @@ func set_character():
 func _on_dialogue_label_spoke(letter: String, _letter_index: int, _speed: float) -> void:
 	if not character_info:
 		set_character()
+		return
 	
 	if letter not in [" ", ",", "."]:
 		talk_sound.pitch_scale = randf_range(pitch_range[0], pitch_range[1])

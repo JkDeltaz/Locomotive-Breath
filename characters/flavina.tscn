@@ -201,7 +201,7 @@ _data = {
 }
 
 [node name="flavina" type="Sprite2D"]
-position = Vector2(-121, 250)
+position = Vector2(-121, 271)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_71f8e")
 hframes = 24

@@ -32,8 +32,12 @@ func set_player_offer(item):
 		$trade_btn.visible = false
 
 func update_offer(item_name):
+	if item_name == null:
+		offer_sprite.texture = null
+		return
 	offer_info = Items.get_item(item_name)
 	var texture_path = offer_info.get("path")
+	
 	
 	offer_sprite.texture = load(texture_path)
 	offer_sprite.scale = Vector2(offer_info.scale[0], offer_info.scale[1])
@@ -66,10 +70,30 @@ func show_offer_description():
 		$description/name_text.text = offer_info.get("name")
 
 func update_item(item_name):
+	if item_name == null:
+		item_sprite.texture = null
+		return
+	
 	item_info = Items.get_item(item_name)
 	var texture_path = item_info.get("path")
 	
+		
 	item_sprite.texture = load(texture_path)
 	item_sprite.scale = Vector2(item_info.scale[0], item_info.scale[1])
+	
 
 # MISC
+
+func clear_trading():
+	player_offer = ""
+	starting_item = ""
+	item_info = {}
+	offer_info = {}
+	update_item(null)
+	update_offer(null)
+	$inventory._on_open_btn_toggled(false)
+	$trade_btn.visible = false
+
+func _on_trade_btn_pressed() -> void:
+	Characters.completed_trade(player_offer)
+	clear_trading()

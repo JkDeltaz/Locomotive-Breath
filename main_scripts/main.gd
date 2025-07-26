@@ -10,7 +10,7 @@ var character = characterBase
 var characters_spawned_today = 0
 
 func _ready():
-	Global.connect("hour_passed", Callable(self, "spawn_character"))
+	#Global.connect("hour_passed", Callable(self, "spawn_character"))
 	spawn_character()
 	MusicManager.play_music("winds")
 
@@ -18,6 +18,9 @@ func _process(_delta):
 	pass
 
 func play_character_animation(animation):
+	if current_character == null:
+		print("Não dá pra botar a animação porque o personagem é null!")
+		return
 	current_character.play_animation(animation)
 
 
@@ -36,3 +39,8 @@ func spawn_character():
 	move_child(current_character, 3)
 	Global.emit_signal("start_trading", current_character)
 	characters_spawned_today += 1
+
+func despawn_character():
+	current_character = null
+	character_in_screen = false
+	currently_trading = false

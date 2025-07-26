@@ -224,3 +224,4 @@ text = "TROCAR"
 [connection signal="mouse_exited" from="item/item_mouse_area" to="." method="_on_item_mouse_area_mouse_exited"]
 [connection signal="mouse_entered" from="offer/offer_mouse_area" to="." method="_on_offer_mouse_area_mouse_entered"]
 [connection signal="mouse_exited" from="offer/offer_mouse_area" to="." method="_on_offer_mouse_area_mouse_exited"]
+[connection signal="pressed" from="trade_btn" to="." method="_on_trade_btn_pressed"]
