@@ -19,6 +19,9 @@ func _ready():
 
 func _process(_delta):
 	$description/tradeBtn.global_position = $description/Marker2D.global_position
+	
+	var show_trade = get_tree().current_scene.get("character_in_screen")
+	$description/tradeBtn.visible = show_trade
 
 func add_item_to_slot(item: Dictionary, amount):
 	item_counter += amount
