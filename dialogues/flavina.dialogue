@@ -1,6 +1,6 @@
 ~ start
 
-do play_character_animation("talk")
+do play_character_animation("default")
 Boooom dia!
 - Bom dia!
 - Vai embora
@@ -8,13 +8,11 @@ Boooom dia!
 Eu tenho essa vaca de chocolate, eu troco por uuuuma Máscara de Morfâno, meu irmão tá precisando muuuuuito!
 Ele nem ouve as múuuusicas que coloco pra ele!
 
-do play_character_animation("default")
 => END!
 
 ~ talk
 
-do play_character_animation("talk")
-
+do play_character_animation("default")
 O que foi?
 - Nada
 - O que aconteceu com seu irmão?
@@ -24,62 +22,54 @@ O que foi?
 - Você quer comprar ao invés de trocar?
 	Eu tenho 200 buuuufos!
 
-do play_character_animation("default")
 
 => END
 
 ~ offered_prefered_item
 
-do play_character_animation("talk")
+do play_character_animation("happy")
 Então você tem um? Muito obrigada!
-do play_character_animation("default")
 
 => END
 
 ~ offered_same_item
 
-do play_character_animation("talk")
+do play_character_animation("confused")
 Mas... Esse já é o que eu tenho...
-do play_character_animation("default")
 
 => END
 
 ~ offered_disliked_item
 
-do play_character_animation("talk")
+do play_character_animation("angry")
 Uhm... Eu deveria saber o que é isso?
-do play_character_animation("default")
 
 => END
 
 ~ traded_liked_item
 
-do play_character_animation("talk")
+do play_character_animation("happy")
 Muuuito obrigada! Voltarei aqui de novo!
-do play_character_animation("default")
 
 => END
 
 ~ traded_bargain
 
-do play_character_animation("talk")
+do play_character_animation("confused")
 Hmmm... Vai ter que servir. Obrigada!
-do play_character_animation("default")
 
 => END
 
 ~ traded_normal_item
 
-do play_character_animation("talk")
-Obrigada! Alguma hora voltarei aqui!
 do play_character_animation("default")
+Obrigada! Alguma hora voltarei aqui!
 
 => END
 
 ~ traded_favorite_item
 
-do play_character_animation("talk")
+do play_character_animation("happy")
 Você realmente vai trocar? Muuuito muito obrigada! Voltarei aqui em breve com notícias do meu irmão!
-do play_character_animation("default")
 
 => END
