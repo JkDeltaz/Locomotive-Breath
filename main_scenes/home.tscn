@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvty3bg4rl126"]
+
+[ext_resource type="Texture2D" uid="uid://cwe3yc53hgaut" path="res://assets/backgrounds/tv_room.jpg" id="2_ls610"]
+[ext_resource type="PackedScene" uid="uid://c0j3m1atggp10" path="res://misc/static_gif.tscn" id="4_k8l23"]
+[ext_resource type="PackedScene" uid="uid://vxf24v6be14f" path="res://main_scenes/newspaper.tscn" id="4_kvglp"]
+[ext_resource type="Script" uid="uid://c5fyvmghqogpu" path="res://main_scripts/main_camera.gd" id="5_6ee8s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rn820"]
+size = Vector2(956, 101)
+
+[node name="house" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(480, 341.5)
+scale = Vector2(1.028, 1.3)
+texture = ExtResource("2_ls610")
+
+[node name="main_camera" type="Camera2D" parent="."]
+position = Vector2(480, 270)
+limit_left = 0
+limit_top = 0
+limit_right = 960
+limit_bottom = 680
+position_smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("5_6ee8s")
+
+[node name="anchor" type="CanvasLayer" parent="main_camera"]
+
+[node name="go_up" type="Area2D" parent="main_camera/anchor"]
+position = Vector2(479, 50)
+
+[node name="collision" type="CollisionShape2D" parent="main_camera/anchor/go_up"]
+shape = SubResource("RectangleShape2D_rn820")
+
+[node name="tv_node" type="Node2D" parent="."]
+position = Vector2(-780, 113)
+
+[node name="blackscreen" type="ColorRect" parent="tv_node"]
+offset_left = 1110.0
+offset_top = 116.0
+offset_right = 1388.0
+offset_bottom = 282.0
+color = Color(0, 0, 0, 0.960784)
+
+[node name="static_gif" parent="tv_node" instance=ExtResource("4_k8l23")]
+modulate = Color(1, 1, 1, 0.227451)
+position = Vector2(1249, 198)
+scale = Vector2(0.377778, 0.3375)
+
+[node name="newspaper" parent="." instance=ExtResource("4_kvglp")]
+
+[connection signal="mouse_entered" from="main_camera/anchor/go_up" to="main_camera" method="_on_go_up_mouse_entered"]
+[connection signal="mouse_exited" from="main_camera/anchor/go_up" to="main_camera" method="_on_go_up_mouse_exited"]

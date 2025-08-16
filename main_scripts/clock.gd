@@ -27,7 +27,8 @@ func _on_clock_timer_timeout() -> void:
 	if minutes >= 60:
 		minutes = 0
 		hours += 1
-		Global.emit_signal("hour_passed")
+		Global.next_hour()
+		Global.set_current_hour(hours)
 	
 	if hours > 23:
 		hours = 0

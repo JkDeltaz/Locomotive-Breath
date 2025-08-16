@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://vxf24v6be14f"]
+
+[ext_resource type="Script" uid="uid://cv8dm73nybxxj" path="res://main_scripts/newspaper.gd" id="1_2bnkv"]
+[ext_resource type="Texture2D" uid="uid://cl0unusxbldf4" path="res://assets/house/newspaper.png" id="1_wbmk7"]
+[ext_resource type="FontFile" uid="uid://d2ewke42ubll4" path="res://assets/fonts/kg_simply_the_best/KGSimplytheBest.otf" id="2_q4rx1"]
+
+[node name="newspaper" type="CanvasLayer"]
+script = ExtResource("1_2bnkv")
+
+[node name="sprite" type="Sprite2D" parent="."]
+modulate = Color(0.412152, 0.412152, 0.412152, 1)
+position = Vector2(358, 456)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("1_wbmk7")
+
+[node name="text" type="RichTextLabel" parent="sprite"]
+offset_left = -1733.33
+offset_top = -33.3335
+offset_right = 15868.7
+offset_bottom = 7515.67
+rotation = -0.0610865
+scale = Vector2(0.15, 0.15)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_q4rx1")
+theme_override_font_sizes/normal_font_size = 500
+text = "Morte de oficial militar sulvelétio nas terras do Norte enfurece governo local. Ciêntistas forenses etilétios acreditam que a causa de morte foi suicídio causado por 27 tiros nas costas.
+
+\"Foi claramente um suícidio\" - Diz presidente militar do Norte eleito democraticamente. - \"Enviaremos o corpo para o Sul o mais rápido possível, não queremos outro caso de Peste Sulvelétia [...]\".
+
+-----------------------------------------------------------------------------------------
+
+NOTÍCIA URGENTE! CIÊNTISTAS AFIRMAM QUE O AR DENTRO DE \"LATAS DE AR\" OFICIALMENTE SE TORNOU  MAIS LIMPO DO QUE O AR DO NORTE! 
+
+(Patrocinado por Letanak Electronics)"
+
+[node name="pickup_button" type="Button" parent="sprite"]
+offset_left = -1875.0
+offset_top = -1256.25
+offset_right = 1213.0
+offset_bottom = 1274.75
+focus_mode = 0
+flat = true
+
+[connection signal="button_down" from="sprite/pickup_button" to="." method="_on_pickup_button_button_down"]
+[connection signal="button_up" from="sprite/pickup_button" to="." method="_on_pickup_button_button_up"]
+[connection signal="mouse_entered" from="sprite/pickup_button" to="." method="_on_pickup_button_mouse_entered"]
+[connection signal="mouse_exited" from="sprite/pickup_button" to="." method="_on_pickup_button_mouse_exited"]
