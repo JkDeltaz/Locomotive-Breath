@@ -209,14 +209,15 @@ scale = Vector2(0.279761, 0.232143)
 
 [node name="clock" type="RichTextLabel" parent="clock_sprite"]
 modulate = Color(0, 0, 0, 0.772549)
-offset_left = 12.8571
-offset_top = -51.4286
-offset_right = 1194.86
-offset_bottom = 475.571
-scale = Vector2(0.18, 0.18)
+clip_contents = false
+offset_left = 37.1429
+offset_top = -41.4286
+offset_right = 1219.15
+offset_bottom = 485.571
+scale = Vector2(0.14, 0.14)
 theme_override_fonts/normal_font = ExtResource("2_2wer5")
 theme_override_font_sizes/normal_font_size = 500
-text = "12:00"
+text = "09:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_ig3j1")
@@ -229,7 +230,6 @@ autostart = true
 libraries = {
 &"": SubResource("AnimationLibrary_656bg")
 }
-autoplay = "dawn"
 
 [node name="slide_anim" type="AnimationPlayer" parent="clock_sprite"]
 libraries = {
