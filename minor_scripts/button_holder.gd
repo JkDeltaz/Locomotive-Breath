@@ -43,4 +43,13 @@ func button_pressed(button):
 	var pull_tween = create_tween()
 	pull_tween.tween_property(button, "position", pull, 0.08)
 	await pull_tween.finished
-	menu.change_scene()
+	
+	match button.name:
+		"playBtn":
+			menu.change_scene("play")
+		"optionsBtn":
+			menu.change_scene("options")
+		"achievementsBtn":
+			menu.change_scene("achievements")
+		"exitBtn":
+			get_tree().quit()
