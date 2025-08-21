@@ -8,11 +8,10 @@ var local_mouse_pos = Vector2.ZERO
 func _process(_delta):
 	if holding_newspaper:
 		$sprite.global_position = $sprite.get_global_mouse_position() - local_mouse_pos
+	get_parent().get_node("main_camera").can_move = !mouse_inside
 
 func _unhandled_input(event: InputEvent) -> void:
-	get_viewport().set_input_as_handled()
 	if mouse_inside:
-		
 		if event.is_action_released("wheel_up") and $sprite.scale.x < 0.40:
 			$sprite.scale.x += 0.01
 			$sprite.scale.y += 0.01

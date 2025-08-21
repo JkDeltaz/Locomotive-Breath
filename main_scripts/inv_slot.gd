@@ -31,6 +31,8 @@ func add_item_to_slot(item: Dictionary, amount):
 	item_scale = item_info.scale
 	
 	$sprite.texture = load(item_info.path)
+	if current_item == "Bufos":
+		$sprite.scale = Vector2(item_scale[0], item_scale[1])
 	update_counter()
 
 func clear_item():

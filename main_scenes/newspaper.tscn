@@ -40,6 +40,7 @@ offset_top = -1256.25
 offset_right = 1213.0
 offset_bottom = 1274.75
 focus_mode = 0
+mouse_default_cursor_shape = 2
 flat = true
 
 [connection signal="button_down" from="sprite/pickup_button" to="." method="_on_pickup_button_button_down"]

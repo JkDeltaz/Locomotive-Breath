@@ -41,5 +41,12 @@
 		"path": "res://assets/items/LB_OBJ_Officer_Mask.png",
 		"price": 100,
 		"scale": [0.6, 0.6]
+	},
+	"bufos": {
+		"name": "Bufos",
+		"description": "Dinheiro, será que se eu derreter vale mais?",
+		"path": "res://assets/items/bufos_coin.png",
+		"price": 1,
+		"scale": [0.5, 0.5]
 	}
 }

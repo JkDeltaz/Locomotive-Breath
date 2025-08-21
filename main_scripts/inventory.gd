@@ -6,7 +6,8 @@ var player_inventory: Dictionary = {"canned_cow": 3,
 								 "catwo": 1,
 								 "officer_mask": 1,
 								"whip_whop": 1,
-								"can_of_air": 1}
+								"can_of_air": 1,
+								"bufos": 1}
 
 @onready var inventory_slots: Array = $GridContainer.get_children()
 
@@ -17,7 +18,7 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
-		add_item("catwo")
+		add_item("bufos")
 	if Input.is_action_just_pressed("open_inv"):
 		$openBtn.button_pressed = !$openBtn.button_pressed
 
