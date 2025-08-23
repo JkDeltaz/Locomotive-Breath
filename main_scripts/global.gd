@@ -7,7 +7,13 @@ signal start_trading
 var reputation: int = 0
 var current_hour: int = 9
 
+var money: int = 10
+var current_player_money_offer: int = 0
+
 var day_ended_transition = false
+
+func set_player_money_offer(amount):
+	current_player_money_offer = amount
 
 func next_hour():
 	if current_hour < 21:

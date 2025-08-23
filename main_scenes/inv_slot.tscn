@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6n5a6vy3y1o7"]
+[gd_scene load_steps=10 format=3 uid="uid://c6n5a6vy3y1o7"]
 
 [ext_resource type="Script" uid="uid://cdt63w7b4pkvl" path="res://main_scripts/inv_slot.gd" id="1_jo6d2"]
 [ext_resource type="FontFile" uid="uid://crgn3gnr05ynk" path="res://assets/fonts/DS-DIGI.TTF" id="2_lnm7h"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c4kcrvl0f7ued" path="res://assets/gui/NameItem.png" id="4_mji31"]
 [ext_resource type="ButtonGroup" uid="uid://dajakvssis7ib" path="res://resources/inventory_slot_button.tres" id="5_71sxj"]
 [ext_resource type="Texture2D" uid="uid://864ktr8c53mk" path="res://assets/gui/tradeBtn.png" id="5_dgge4"]
+[ext_resource type="Texture2D" uid="uid://mx8niw1wjh6g" path="res://assets/gui/money_plus.png" id="7_0gs2n"]
+[ext_resource type="Texture2D" uid="uid://wbnlai7gba0n" path="res://assets/gui/money_minus.png" id="8_pufl0"]
+[ext_resource type="FontFile" uid="uid://d2ewke42ubll4" path="res://assets/fonts/kg_simply_the_best/KGSimplytheBest.otf" id="9_ifh0k"]
 
 [node name="invSlot" type="Panel"]
 mouse_filter = 2
@@ -99,5 +102,63 @@ flat = true
 [node name="Marker2D" type="Marker2D" parent="description"]
 position = Vector2(4, 19)
 
+[node name="money" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(12, -12)
+
+[node name="plus_position" type="Marker2D" parent="money"]
+position = Vector2(14, 90)
+
+[node name="minus_position" type="Marker2D" parent="money"]
+position = Vector2(66, 91)
+
+[node name="plusBtn" type="TextureButton" parent="money"]
+top_level = true
+z_index = 3
+offset_left = 26.0
+offset_top = 78.0
+offset_right = 58.0
+offset_bottom = 110.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("7_0gs2n")
+
+[node name="minusBtn" type="TextureButton" parent="money"]
+top_level = true
+z_index = 3
+offset_left = 78.0
+offset_top = 79.0
+offset_right = 110.0
+offset_bottom = 111.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_pufl0")
+
+[node name="money_sprite" type="NinePatchRect" parent="money"]
+z_index = 2
+offset_left = -13.0
+offset_top = 46.0
+offset_right = 125.0
+offset_bottom = 145.0
+texture = ExtResource("3_wrjnm")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="money_counter" type="RichTextLabel" parent="money/money_sprite"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 27.0
+offset_right = 1883.0
+offset_bottom = 427.0
+scale = Vector2(0.05, 0.05)
+theme_override_fonts/normal_font = ExtResource("9_ifh0k")
+theme_override_font_sizes/normal_font_size = 300
+text = "Valor: 1"
+scroll_active = false
+
 [connection signal="toggled" from="selectBtn" to="." method="_on_select_btn_toggled"]
 [connection signal="pressed" from="description/tradeBtn" to="." method="_on_trade_btn_pressed"]
+[connection signal="pressed" from="money/plusBtn" to="." method="_on_plus_btn_pressed"]
+[connection signal="pressed" from="money/minusBtn" to="." method="_on_minus_btn_pressed"]

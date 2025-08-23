@@ -6,7 +6,7 @@ var despawn = false
 func _ready():
 	super()
 	main_offers = {"canned_cow": 100} # nome: raridade
-	main_preferences = {"officer_mask": 100}
+	main_preferences = {"officer_mask": 100, "bufos": 90}
 	disliked_items = {"catwo": 2} # nome: lealdade perdida
 	prefered_position = Vector2(486, 271)
 	info = Characters.get_info("flavina")

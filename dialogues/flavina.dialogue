@@ -46,6 +46,15 @@ Uhm... Eu deveria saber o que é isso?
 
 => END
 
+=> END
+
+~ offered_money
+
+do play_character_animation("default")
+Bufos?
+
+=> END
+
 ~ traded_liked_item
 
 do play_character_animation("happy")
@@ -64,6 +73,13 @@ Hmmm... Vai ter que servir. Obrigada!
 
 do play_character_animation("default")
 Obrigada! Alguma hora voltarei aqui!
+
+=> END
+
+~ traded_money
+
+do play_character_animation("default")
+Hmm... Talvez eu consiga comprar em outra loja...
 
 => END
 

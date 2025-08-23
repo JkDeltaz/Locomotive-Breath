@@ -31,10 +31,16 @@ func current_trade_item_dialogue(offer, item):
 	
 	var item_rating = current_character.get_main_preferences().get(item)
 	
+	if item_rating == null:
+		item_rating = 50
+	
+	if item == "bufos":
+		DialogueManager.show_dialogue_balloon(load(current_character_info.get("dialogue_path")), "offered_money")
+		return
 	
 	if offer == item:
 		DialogueManager.show_dialogue_balloon(load(current_character_info.get("dialogue_path")), "offered_same_item")
-	elif item_rating == 100:
+	elif item_rating > 90:
 		DialogueManager.show_dialogue_balloon(load("res://dialogues/"+character_name+".dialogue"), "offered_prefered_item")
 	else:
 		DialogueManager.show_dialogue_balloon(load("res://dialogues/"+character_name+".dialogue"), "offered_disliked_item")

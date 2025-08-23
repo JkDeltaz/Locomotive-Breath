@@ -47,6 +47,6 @@
 		"description": "Dinheiro, será que se eu derreter vale mais?",
 		"path": "res://assets/items/bufos_coin.png",
 		"price": 1,
-		"scale": [0.5, 0.5]
+		"scale": [1, 1]
 	}
 }

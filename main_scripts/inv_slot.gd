@@ -11,14 +11,20 @@ var texture = Texture.new()
 
 var item_counter: int = 0
 
+var is_money: bool = false
+var money_amount: int = 0
+
 var selected: bool = false
 
 func _ready():
 	$description.visible = false
+	$money.visible = false
 	$selectBtn.button_group = load("res://resources/inventory_slot_button.tres")
 
 func _process(_delta):
 	$description/tradeBtn.global_position = $description/Marker2D.global_position
+	$money/plusBtn.global_position = $money/plus_position.global_position
+	$money/minusBtn.global_position = $money/minus_position.global_position
 	
 	var show_trade = get_tree().current_scene.get("character_in_screen")
 	$description/tradeBtn.visible = show_trade
@@ -32,6 +38,7 @@ func add_item_to_slot(item: Dictionary, amount):
 	
 	$sprite.texture = load(item_info.path)
 	if current_item == "Bufos":
+		is_money = true
 		$sprite.scale = Vector2(item_scale[0], item_scale[1])
 	update_counter()
 
@@ -42,6 +49,7 @@ func clear_item():
 	$sprite.texture = null
 	item_counter = 0
 	$counter.visible = false
+	is_money = false
 	
 
 func add_more(amount):
@@ -72,6 +80,7 @@ func show_item_description():
 		return
 	
 	$description.visible = true
+	
 	Utils.growing_text($description/description_text, item_info.get("description"), 0.01)
 	$description/name_text.text = item_info.get("name")
 	$sprite.scale *= 1.4
@@ -82,6 +91,7 @@ func show_item_description():
 	if self_index in invert_description and $description.position.x > 0:
 		$description.position.x *= -1
 		$description.position.x += 10
+		$money.position.x *= 1
 	
 	if self_index in right_margin and !applied_margin:
 		$description.position.x -= 10
@@ -90,10 +100,10 @@ func show_item_description():
 func hide_item_description():
 	$description.visible = false
 	$sprite.scale *= (1/1.4)
+	$money.visible = false
 
 func _on_select_btn_toggled(toggled_on: bool) -> void:
 	selected = toggled_on
-	
 	if toggled_on:
 		show_item_description()
 	else:
@@ -102,5 +112,21 @@ func _on_select_btn_toggled(toggled_on: bool) -> void:
 	inventory.set_selected_item(current_item)
 
 func _on_trade_btn_pressed() -> void:
-	trading.set_player_offer(item_info)
+	
 	AudioManager.play_audio("new_offer", 1)
+	if is_money:
+		$money.visible = true
+	
+	trading.set_player_offer(item_info)
+
+func _on_plus_btn_pressed() -> void:
+	if money_amount < Global.money:
+		money_amount += 1
+	$money/money_sprite/money_counter.text = "Valor: " + str(money_amount)
+	Global.set_player_money_offer(money_amount)
+
+func _on_minus_btn_pressed() -> void:
+	if money_amount > 0:
+		money_amount -= 1
+	$money/money_sprite/money_counter.text = "Valor: " + str(money_amount)
+	Global.set_player_money_offer(money_amount)
