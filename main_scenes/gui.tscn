@@ -223,7 +223,7 @@ vertical_alignment = 1
 script = ExtResource("4_ig3j1")
 
 [node name="clock_timer" type="Timer" parent="clock_sprite/clock"]
-wait_time = 0.3
+wait_time = 0.001
 autostart = true
 
 [node name="anim" type="AnimationPlayer" parent="clock_sprite"]
